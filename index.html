@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Maison de Paw — 高端寵物生活與照護空間">
+<title>Maison de Paw — Pet Lifestyle & Care</title>
+<style>
+:root{
+  --ivory:#f4f0e8;--paper:#ebe3d6;--cream:#ddd2c2;--sage:#8b9282;
+  --olive:#5f6659;--brown:#9a8975;--ink:#272622;--white:#fbfaf6;
+  --line:rgba(39,38,34,.2);--ease:cubic-bezier(.16,.8,.18,1)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:Arial,"Noto Sans TC",sans-serif;overflow-x:hidden}
+body::-webkit-scrollbar{width:7px}body::-webkit-scrollbar-thumb{background:#aaa193}
+a{text-decoration:none;color:inherit}
+button,a{outline-offset:5px}
+button:focus-visible,a:focus-visible{outline:1px solid currentColor}
+#progress{position:fixed;z-index:999;top:0;left:0;width:0;height:3px;background:var(--ink)}
+.nav{position:fixed;z-index:100;top:0;left:0;width:100%;padding:25px 5vw;display:flex;justify-content:space-between;align-items:center;color:white;mix-blend-mode:difference;transition:.4s}
+.nav.scrolled{mix-blend-mode:normal;background:rgba(244,240,232,.9);color:var(--ink);padding-top:16px;padding-bottom:16px;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{font-family:Georgia,serif;font-size:19px;letter-spacing:.08em}
+.navlinks{display:flex;gap:32px;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.navlinks a{position:relative}.navlinks a:after{content:"";position:absolute;bottom:-8px;left:0;width:0;height:1px;background:currentColor;transition:.3s}.navlinks a:hover:after{width:100%}
+.menu{display:none;border:0;background:none;font-size:22px;color:inherit}
+
+.hero{height:120vh;position:relative;background:#d8cdbd}
+.hero-stage{position:sticky;top:0;height:100svh;min-height:650px;overflow:hidden}
+.hero-base{position:absolute;inset:-15%;background:
+linear-gradient(115deg,rgba(31,30,27,.48),rgba(31,30,27,.08) 65%,rgba(31,30,27,.22)),
+url("https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=2400&q=90") center/cover;
+transform:scale(1.12);will-change:transform}
+.geo{position:absolute;display:block;will-change:transform,opacity}
+.hero-circle{width:34vw;height:34vw;max-width:520px;max-height:520px;border:1px solid rgba(39,38,34,.35);border-radius:50%;right:5%;top:8%;transform:translate3d(0,0,0)}
+.hero-circle2{width:21vw;height:21vw;max-width:320px;max-height:320px;background:rgba(139,146,130,.70);border-radius:50%;left:4%;bottom:8%;opacity:.82}
+.hero-block{width:37vw;height:22vw;max-width:600px;max-height:350px;background:rgba(154,137,117,.72);right:-5%;bottom:12%;transform:rotate(-12deg)}
+.hero-line{width:150vw;height:1px;background:rgba(39,38,34,.35);left:-20%;top:50%;transform:rotate(-16deg)}
+.hero-line2{width:120vw;height:1px;background:rgba(39,38,34,.18);left:-10%;top:63%;transform:rotate(24deg)}
+.hero-ring{width:27vw;height:27vw;border:2px solid rgba(255,255,255,.58);border-radius:50%;left:25%;top:15%}
+.hero-photo-glow{position:absolute;z-index:1;width:42vw;height:42vw;border-radius:50%;right:18%;top:20%;background:rgba(255,250,240,.10);backdrop-filter:blur(1px);will-change:transform}
+.hero-content{position:absolute;z-index:5;inset:0;display:flex;align-items:flex-end;padding:0 5vw 9vh;color:#272622}
+.hero-copy{max-width:950px}
+.eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:22px}
+.hero h1{font-family:Georgia,serif;font-size:clamp(60px,9.5vw,150px);font-weight:400;line-height:.82;letter-spacing:-.06em;margin:0;will-change:transform,opacity}
+.hero-sub{font-size:15px;line-height:1.8;margin:30px 0 0;max-width:460px}
+.hero-buttons{display:flex;gap:12px;margin-top:25px}
+.btn{min-height:48px;padding:0 24px;display:inline-flex;align-items:center;justify-content:center;border:1px solid currentColor;font-size:10px;letter-spacing:.13em;text-transform:uppercase;transition:.3s var(--ease)}
+.btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 15px 30px rgba(39,38,34,.14)}
+.btn-dark{background:var(--ink);color:var(--white)}
+.scroll-label{position:absolute;z-index:6;right:5vw;bottom:35px;font-size:9px;letter-spacing:.25em;writing-mode:vertical-rl}
+.scroll-label:after{content:"";display:block;width:1px;height:60px;background:currentColor;margin:12px auto 0}
+
+.section{position:relative;padding:150px 0;overflow:hidden}
+.container{width:min(90%,1400px);margin:auto}
+.section-title{display:grid;grid-template-columns:.55fr 1.45fr;gap:8vw;margin-bottom:90px;position:relative;z-index:2}
+.kicker{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#69645b}
+h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(50px,7vw,100px);line-height:.88;letter-spacing:-.05em;margin:0}
+.lead{font-size:20px;line-height:1.7;max-width:700px}
+
+.about{background:var(--ivory);min-height:115vh}
+.about-bg-circle{position:absolute;width:60vw;height:60vw;border-radius:50%;background:#e5dccf;right:-25vw;top:5%;will-change:transform}
+.about-line{position:absolute;width:130vw;height:1px;background:var(--line);left:-10%;top:58%;transform:rotate(-8deg);will-change:transform}
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:8vw;align-items:center;position:relative;z-index:2}
+.about-visual{height:650px;position:relative;overflow:hidden;background:#c7b9a7;will-change:transform}
+.about-photo{position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1600&q=85") center/cover;filter:saturate(.72);will-change:transform}
+.about-frame{position:absolute;inset:8%;border:1px solid rgba(255,255,255,.55);transform:rotate(5deg);will-change:transform}
+.about-copy p{font-size:20px;line-height:1.9;margin:0 0 25px}.note{border-top:1px solid var(--line);padding-top:18px;font-size:12px;line-height:1.8;color:#6d685f}
+
+.manifesto{height:120vh;background:#3b3d37;color:var(--white);position:relative}
+.manifesto-stage{height:100svh;position:sticky;top:0;overflow:hidden}
+.manifesto-bg{position:absolute;inset:-15%;background:linear-gradient(135deg,#5d6458,#343630 48%,#777361);will-change:transform}
+.manifesto-grid{position:absolute;inset:-20%;background-image:linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px);background-size:12vw 12vw;transform:rotate(18deg);will-change:transform}
+.manifesto-square{position:absolute;width:35vw;height:35vw;border:1px solid rgba(255,255,255,.4);right:8%;top:8%;transform:rotate(30deg);will-change:transform}
+.manifesto-disc{position:absolute;width:20vw;height:20vw;border-radius:50%;background:#a49784;left:8%;bottom:7%;will-change:transform}
+.manifesto-content{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;text-align:center}
+.manifesto-content h2{font-size:clamp(58px,10vw,150px);will-change:transform,opacity}
+.manifesto-caption{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);letter-spacing:.15em;font-size:12px;white-space:nowrap}
+
+.services{background:#e9e1d5}
+.service-intro{position:relative;z-index:2}
+.service-list{position:relative}
+.service{height:90vh;min-height:620px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);position:relative;overflow:hidden}
+.service-media{position:relative;overflow:hidden}
+.service-media:before{content:"";position:absolute;inset:-12%;background-size:cover;background-position:center;will-change:transform}
+.s1:before{background-image:url("https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1600&q=85")}
+.s2:before{background-image:url("https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1600&q=85")}
+.s3:before{background-image:url("https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1600&q=85")}
+.s4:before{background-image:url("https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1800&q=90")}
+.service-media:after{content:"";position:absolute;width:55%;height:55%;border:1px solid rgba(255,255,255,.55);left:22%;top:20%;transform:rotate(-8deg);will-change:transform}
+.s4{background:#b7aa98}
+.s4:before{background-position:center 42%;filter:saturate(.68) contrast(.98)}
+
+.service-copy{display:flex;flex-direction:column;justify-content:center;padding:8vw;position:relative;z-index:2}
+.service:nth-child(even) .service-media{order:2}.service:nth-child(even) .service-copy{order:1}
+.service-no{font-size:10px;letter-spacing:.25em;color:#706b62;margin-bottom:30px}
+.service h3{font-family:Georgia,serif;font-size:clamp(42px,5vw,72px);font-weight:400;line-height:.92;margin:0 0 25px}
+.service p{max-width:470px;color:#6b665e;line-height:1.9}
+
+.companions{background:var(--ivory);min-height:120vh}
+.species-stage{position:relative;height:760px}
+.species{position:absolute;overflow:hidden;background:#b8aa98;will-change:transform}
+.species:before{content:"";position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.65);transform:scale(1.1);will-change:transform}
+.species:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(20,19,17,.72))}
+.species span{position:absolute;z-index:2;left:25px;bottom:25px;color:#fff;font-family:Georgia,serif;font-size:30px}
+.dog{width:30%;height:43%;left:0;top:5%}.cat{width:25%;height:34%;left:34%;top:0}.rabbit{width:34%;height:48%;right:0;top:12%}
+.hamster{width:23%;height:31%;left:14%;bottom:2%}.aquatic{width:29%;height:38%;left:40%;bottom:7%}.reptile{width:25%;height:31%;right:7%;bottom:0}
+.dog:before{background-image:url("https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=85")}
+.cat:before{background-image:url("https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=900&q=85")}
+.rabbit:before{background-image:url("https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=900&q=85")}
+.hamster:before{background-image:url("https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=900&q=85")}
+.aquatic:before{background-image:url("https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=900&q=85")}
+.reptile:before{background-image:url("https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&w=900&q=85")}
+
+.care{height:125vh;background:#e1d8ca;position:relative}
+.care-photo{position:absolute;inset:-15%;background:
+linear-gradient(90deg,rgba(38,39,34,.72),rgba(38,39,34,.30) 52%,rgba(38,39,34,.58)),
+url("https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=2400&q=90") center/cover;
+will-change:transform;filter:saturate(.78)}
+.care-photo-wash{position:absolute;width:48vw;height:48vw;left:8%;top:8%;background:rgba(215,204,188,.18);mix-blend-mode:screen;transform:rotate(20deg);will-change:transform}
+.care-stage{position:sticky;top:0;height:100svh;overflow:hidden}
+.care-ring{position:absolute;width:65vw;height:65vw;border:1px solid rgba(255,255,255,.35);border-radius:50%;left:-22%;top:8%;will-change:transform}
+.care-ring2{position:absolute;width:35vw;height:35vw;border:1px solid rgba(255,255,255,.28);border-radius:50%;right:-4%;bottom:-10%;will-change:transform}
+.care-block{position:absolute;width:32vw;height:32vw;background:rgba(154,141,122,.68);right:13%;top:16%;transform:rotate(15deg);will-change:transform}
+.care-line{position:absolute;width:130vw;height:1px;background:rgba(255,255,255,.35);top:52%;left:-15%;transform:rotate(-18deg);will-change:transform}
+.care-content{position:relative;z-index:3;width:min(90%,1200px);height:100%;margin:auto;display:flex;flex-direction:column;justify-content:center;color:#fbfaf6}
+.care-content .kicker{color:rgba(251,250,246,.72)}
+.care-content h2{max-width:950px}.care-copy{max-width:650px;margin:50px 0 0 auto;font-size:19px;line-height:2;color:rgba(251,250,246,.82)}
+
+.cta{padding:160px 0;background:#f0ebe3;position:relative;overflow:hidden}
+.cta:before{content:"";position:absolute;width:32vw;height:32vw;border:1px solid var(--line);border-radius:50%;right:-8%;top:-30%;will-change:transform}
+.cta-inner{position:relative;z-index:2;display:flex;align-items:end;justify-content:space-between;gap:40px}
+.cta h2{font-size:clamp(52px,7vw,105px)}
+.cta-actions{display:flex;gap:10px;flex-shrink:0}
+.contact{padding:120px 0;background:var(--ivory)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:8vw}.contact h3{font-family:Georgia,serif;font-size:44px;font-weight:400;margin:25px 0}.contact p{line-height:1.9;color:#6c675f}
+.hours{border-top:1px solid var(--line);padding-top:22px}.hours strong{font-size:22px;font-weight:400}
+footer{border-top:1px solid var(--line);padding:30px 5vw;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#6b665e}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translate3d(0,90px,0) scale(.92);filter:blur(4px);transition:opacity .9s var(--ease),transform 1s var(--ease),filter .9s ease}
+.reveal.in{opacity:1;transform:none;filter:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+/* Mobile */
+@media(max-width:900px){
+ .navlinks{display:none}.menu{display:block}
+ .nav.open .navlinks{position:absolute;top:64px;left:0;width:100%;padding:25px 5vw;display:flex;flex-direction:column;gap:20px;background:rgba(244,240,232,.97);color:var(--ink);mix-blend-mode:normal}
+ .section{padding:100px 0}.section-title{grid-template-columns:1fr;gap:28px;margin-bottom:60px}
+ .about-grid{grid-template-columns:1fr}.about-visual{height:520px}
+ .service{height:auto;min-height:0;grid-template-columns:1fr}.service:nth-child(even) .service-media{order:1}.service:nth-child(even) .service-copy{order:2}
+ .service-media{height:60vh;min-height:400px}.service-copy{min-height:420px;padding:70px 8vw}
+ .species-stage{height:850px}.dog{width:48%;height:30%;}.cat{width:42%;height:25%;left:55%}.rabbit{width:53%;height:30%;right:0;top:34%}.hamster{width:39%;height:22%;left:4%;bottom:20%}.aquatic{width:48%;height:25%;left:45%;bottom:8%}.reptile{width:38%;height:22%;right:4%;bottom:0}
+ .cta-inner,.contact-grid{grid-template-columns:1fr;display:grid}.cta-actions{width:100%;flex-direction:column}.cta-actions .btn{width:100%}
+}
+@media(max-width:600px){
+ .hero-photo-glow{width:65vw;height:65vw}.hero{height:115vh}.hero h1{font-size:58px}.hero-content{padding-bottom:90px}.hero-circle{width:65vw;height:65vw}.hero-block{width:65vw;height:40vw}.hero-ring{width:52vw;height:52vw}
+ .manifesto{height:115vh}.manifesto-content h2{font-size:55px}.manifesto-square{width:55vw;height:55vw}.manifesto-disc{width:32vw;height:32vw}
+ .species-stage{height:780px}.species span{font-size:21px;left:16px;bottom:16px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}.reveal{opacity:1;transform:none;filter:none;transition:none}
+ .hero-base,.hero-photo-glow,.care-photo,.care-photo-wash,.geo,.hero h1,.about-bg-circle,.about-line,.about-visual,.about-photo,.about-frame,.manifesto-bg,.manifesto-grid,.manifesto-square,.manifesto-disc,.service-media:before,.service-media:after,.species,.species:before,.care-ring,.care-ring2,.care-block,.care-line,.cta:before{transform:none!important}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<header class="nav" id="nav">
+  <a href="#top" class="logo">Maison de Paw</a>
+  <nav class="navlinks">
+    <a href="#about">About</a><a href="#services">Services</a><a href="#companions">Companions</a><a href="#care">Care</a><a href="#contact">Contact</a>
+  </nav>
+  <button class="menu" id="menu" aria-label="開啟選單" aria-expanded="false">☰</button>
+</header>
+
+<main id="top">
+<!-- HERO: scroll-controlled multi-layer scene -->
+<section class="hero" id="hero">
+ <div class="hero-stage">
+  <div class="hero-base"></div>
+  <span class="geo hero-circle" data-speed="-0.20"></span>
+  <span class="geo hero-circle2" data-speed="0.32"></span>
+  <span class="geo hero-block" data-speed="0.42"></span>
+  <span class="geo hero-line" data-speed="-0.10"></span>
+  <span class="geo hero-line2" data-speed="0.20"></span>
+  <span class="geo hero-ring" data-speed="-0.32"></span>
+  <span class="hero-photo-glow" data-speed="-0.26"></span>
+  <div class="hero-content">
+   <div class="hero-copy" id="heroCopy">
+    <div class="eyebrow">Pet Lifestyle & Care Space</div>
+    <h1 id="heroTitle">Where Every<br>Paw Feels<br>at Home.</h1>
+    <p class="hero-sub">讓每一個毛孩，都能找到安心的生活方式。<br>陪伴、照護、理解。</p>
+    <div class="hero-buttons"><a class="btn btn-dark" href="#services">探索我們的服務</a><a class="btn" href="#about">認識 Maison de Paw</a></div>
+   </div>
+  </div>
+  <div class="scroll-label">SCROLL TO EXPLORE</div>
+ </div>
+</section>
+
+<section class="section about" id="about">
+ <span class="about-bg-circle" data-parallax="-.16"></span><span class="about-line" data-parallax=".28"></span>
+ <div class="container">
+  <div class="section-title reveal"><div class="kicker">01 / About</div><h2>More Than<br>A Pet Store.</h2></div>
+  <div class="about-grid">
+   <div class="about-visual reveal" data-parallax=".10"><div class="about-photo"></div><div class="about-frame" data-parallax="-.22"></div></div>
+   <div class="about-copy reveal d1"><p>Maison de Paw 是一個以「陪伴、照護、理解」為核心的寵物生活空間。</p><p>我們將日常用品、照護、美容、寄宿與飼養建議放進同一種生活語境裡，讓人與寵物都能更從容地生活。</p><div class="note">照護從不只是餵食與陪伴，而是理解牠們的習性、需求與情緒，陪牠們一起好好生活。</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- MANIFESTO: a full-screen scroll scene -->
+<section class="manifesto" id="manifesto">
+ <div class="manifesto-stage">
+  <div class="manifesto-bg" data-scene="bg"></div>
+  <div class="manifesto-grid" data-scene="grid"></div>
+  <div class="manifesto-square" data-scene="square"></div>
+  <div class="manifesto-disc" data-scene="disc"></div>
+  <div class="manifesto-content"><h2 id="manifestoTitle">A PLACE TO<br>UNDERSTAND THEM.</h2></div>
+  <div class="manifesto-caption">理解牠們，從生活開始。</div>
+ </div>
+</section>
+
+<section class="section services" id="services">
+ <div class="container service-intro">
+  <div class="section-title reveal"><div class="kicker">02 / Services</div><h2>Designed Around<br>Their Everyday.</h2></div>
+ </div>
+ <div class="service-list">
+  <article class="service">
+   <div class="service-media s1" data-parallax=".08"></div><div class="service-copy reveal"><div class="service-no">01 — PET ESSENTIALS</div><h3>Pet<br>Essentials</h3><p>從日常用品到生活所需，選擇更貼近不同寵物習性的用品，讓每一天都更舒適。</p></div>
+  </article>
+  <article class="service">
+   <div class="service-media s2" data-parallax="-.08"></div><div class="service-copy reveal"><div class="service-no">02 — GROOMING & CARE</div><h3>Grooming<br>& Care</h3><p>美容整理不只是外觀，也在過程中留意毛髮與皮膚等日常狀態。</p></div>
+  </article>
+  <article class="service">
+   <div class="service-media s3" data-parallax=".10"></div><div class="service-copy reveal"><div class="service-no">03 — BOARDING</div><h3>Boarding</h3><p>提供寄宿期間的日常生活照護與安排，讓牠們在熟悉的節奏中安心度過每一天。</p></div>
+  </article>
+  <article class="service">
+   <div class="service-media s4" data-parallax="-.10"></div><div class="service-copy reveal"><div class="service-no">04 — HUSBANDRY GUIDANCE</div><h3>Husbandry<br>Guidance</h3><p>依照不同寵物的生活習性，提供基礎飼養與照護方向，理解牠們真正需要什麼。</p></div>
+  </article>
+ </div>
+</section>
+
+<section class="section companions" id="companions">
+ <div class="container">
+  <div class="section-title reveal"><div class="kicker">03 / Companions</div><div><h2>Every Pet Has<br>Its Own Rhythm.</h2><p class="lead">每一種寵物，都有自己的生活節奏。</p></div></div>
+  <div class="species-stage">
+   <div class="species dog" data-speed=".30"><span>Dogs</span></div>
+   <div class="species cat" data-speed="-.22"><span>Cats</span></div>
+   <div class="species rabbit" data-speed=".18"><span>Rabbits</span></div>
+   <div class="species hamster" data-speed="-.30"><span>Hamsters</span></div>
+   <div class="species aquatic" data-speed=".24"><span>Aquatic</span></div>
+   <div class="species reptile" data-speed="-.16"><span>Reptiles</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="care" id="care">
+ <div class="care-stage">
+  <div class="care-photo" data-care-photo></div>
+  <div class="care-photo-wash" data-care-wash></div>
+  <span class="care-ring" data-speed="-.22"></span><span class="care-ring2" data-speed=".28"></span><span class="care-block" data-speed=".38"></span><span class="care-line" data-speed="-.12"></span>
+  <div class="care-content">
+   <div class="kicker reveal">04 / Care Philosophy</div>
+   <h2 class="reveal">Care Begins<br>With Understanding.</h2>
+   <div class="care-copy reveal d1">照護從不只是餵食與陪伴，而是理解牠們的習性、需求與情緒，陪牠們一起好好生活。</div>
+  </div>
+ </div>
+</section>
+
+<section class="cta">
+ <div class="container cta-inner">
+  <h2 class="reveal">從理解開始，<br>一起好好生活。</h2>
+  <div class="cta-actions reveal d1"><a class="btn btn-dark" href="#services">探索服務</a><a class="btn" href="#contact">聯絡 Maison de Paw</a></div>
+ </div>
+</section>
+
+<section class="contact" id="contact">
+ <div class="container contact-grid">
+  <div class="reveal"><div class="kicker">05 / Contact</div><h3>Maison de Paw</h3><p>一個為不同寵物與牠們的生活方式而存在的空間。</p></div>
+  <div class="reveal d1"><div class="kicker">Opening Hours</div><div class="hours"><strong>10:00 — 20:00</strong><p>我們採輪班方式維持長時間服務，讓不同時段都能有人員提供協助。</p><p>若寵物出現需要專業醫療判斷的健康問題，建議尋求合格獸醫師協助。</p></div></div>
+ </div>
+</section>
+</main>
+
+<footer><span>Maison de Paw</span><span>Companionship · Care · Understanding</span></footer>
+
+<script>
+(() => {
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const nav=document.getElementById('nav'),progress=document.getElementById('progress');
+ const menu=document.getElementById('menu');
+ const hero=document.getElementById('hero'),heroTitle=document.getElementById('heroTitle'),heroCopy=document.getElementById('heroCopy');
+ const manifesto=document.getElementById('manifesto'),manifestoTitle=document.getElementById('manifestoTitle');
+ const ticking={v:false};
+
+ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+ const map=(v,a,b,c,d)=>c+(v-a)/(b-a)*(d-c);
+
+ function sceneProgress(el){
+   const r=el.getBoundingClientRect(), h=window.innerHeight;
+   return clamp((h-r.top)/(h+r.height),0,1);
+ }
+
+ function update(){
+   const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;
+   progress.style.width=(max?y/max*100:0)+'%';
+   nav.classList.toggle('scrolled',y>45);
+
+   if(!reduced){
+     /* HERO: 6 independent layers */
+     const hr=hero.getBoundingClientRect();
+     const hp=clamp(-hr.top/(hero.offsetHeight-innerHeight),0,1);
+     const heroBase=document.querySelector('.hero-base');
+     heroBase.style.transform=`translate3d(0,${hp*120}px,0) scale(${1.12-hp*.08})`;
+     document.querySelectorAll('.hero-stage .geo,.hero-stage .hero-photo-glow').forEach(el=>{
+       const speed=parseFloat(el.dataset.speed||0);
+       const ty=hp*speed*520;
+       const rot=(el.classList.contains('hero-ring')?hp*28:hp*10);
+       const sc=1+hp*(el.classList.contains('hero-circle')?.12:.04);
+       el.style.transform=`translate3d(0,${ty}px,0) rotate(${rot}deg) scale(${sc})`;
+     });
+     heroTitle.style.transform=`translate3d(0,${-hp*180}px,0) scale(${1-hp*.12})`;
+     heroTitle.style.opacity=String(1-hp*1.15);
+     heroCopy.style.transform=`translate3d(0,${-hp*110}px,0)`;
+     heroCopy.style.opacity=String(1-hp*.95);
+
+     /* ABOUT: objects travel independently */
+     document.querySelectorAll('[data-parallax]').forEach(el=>{
+       const r=el.getBoundingClientRect();
+       if(r.bottom>0 && r.top<innerHeight){
+         const center=(r.top+r.height/2-innerHeight/2)/innerHeight;
+         const speed=parseFloat(el.dataset.parallax);
+         const x=el.classList.contains('about-bg-circle')?center*80:0;
+         el.style.transform=`translate3d(${x}px,${center*speed*-180}px,0)`;
+       }
+     });
+
+     /* MANIFESTO: continuous scroll choreography */
+     const mp=sceneProgress(manifesto);
+     const bg=document.querySelector('.manifesto-bg');
+     const grid=document.querySelector('.manifesto-grid');
+     const square=document.querySelector('.manifesto-square');
+     const disc=document.querySelector('.manifesto-disc');
+     bg.style.transform=`translate3d(0,${map(mp,0,1,-120,120)}px,0) scale(${map(mp,0,1,1.18,1.02)})`;
+     grid.style.transform=`translate3d(${map(mp,0,1,-100,100)}px,${map(mp,0,1,100,-100)}px,0) rotate(${map(mp,0,1,18,38)}deg)`;
+     square.style.transform=`translate3d(${map(mp,0,1,160,-120)}px,${map(mp,0,1,-100,140)}px,0) rotate(${map(mp,0,1,30,95)}deg) scale(${map(mp,0,1,.8,1.25)})`;
+     disc.style.transform=`translate3d(${map(mp,0,1,-100,180)}px,${map(mp,0,1,100,-120)}px,0) scale(${map(mp,0,1,.7,1.4)})`;
+     manifestoTitle.style.transform=`translate3d(0,${map(mp,0,1,160,-160)}px,0) scale(${map(mp,0,1,.78,1.08)})`;
+     manifestoTitle.style.opacity=String(Math.sin(mp*Math.PI));
+
+     /* SERVICE IMAGE PARALLAX */
+     document.querySelectorAll('.service-media').forEach(el=>{
+       const r=el.getBoundingClientRect();
+       const p=clamp((innerHeight-r.top)/(innerHeight+r.height),0,1);
+       const speed=parseFloat(el.dataset.parallax||0);
+       const image=el.querySelector(':before');
+       const y=(p-.5)*speed*-700;
+       el.style.setProperty('--py',y+'px');
+       el.style.setProperty('--rot',((p-.5)*speed*14)+'deg');
+     });
+     document.documentElement.style.setProperty('--service-p','1');
+
+     /* COMPANION FLOATING COLLAGE */
+     document.querySelectorAll('.species').forEach(el=>{
+       const r=el.getBoundingClientRect();
+       const p=clamp((innerHeight-r.top)/(innerHeight+r.height),0,1);
+       const speed=parseFloat(el.dataset.speed||0);
+       const y=(p-.5)*speed*-500;
+       const rot=(p-.5)*speed*16;
+       const scale=1+Math.abs(p-.5)*.08;
+       el.style.transform=`translate3d(0,${y}px,0) rotate(${rot}deg) scale(${scale})`;
+       el.style.setProperty('--imgY',(-y*.45)+'px');
+     });
+
+     /* CARE: photo + geometric choreography */
+     const care=document.querySelector('.care'), cp=sceneProgress(care);
+     document.querySelector('[data-care-photo]').style.transform=`translate3d(0,${map(cp,0,1,100,-130)}px,0) scale(${map(cp,0,1,1.12,1.02)})`;
+     document.querySelector('[data-care-wash]').style.transform=`translate3d(${map(cp,0,1,-120,180)}px,${map(cp,0,1,100,-140)}px,0) rotate(${map(cp,0,1,20,75)}deg) scale(${map(cp,0,1,.8,1.2)})`;
+     document.querySelector('.care-ring').style.transform=`translate3d(${map(cp,0,1,-100,260)}px,${map(cp,0,1,120,-160)}px,0) rotate(${map(cp,0,1,-20,45)}deg) scale(${map(cp,0,1,.75,1.18)})`;
+     document.querySelector('.care-ring2').style.transform=`translate3d(${map(cp,0,1,100,-180)}px,${map(cp,0,1,-80,130)}px,0) rotate(${map(cp,0,1,15,-35)}deg) scale(${map(cp,0,1,.7,1.3)})`;
+     document.querySelector('.care-block').style.transform=`translate3d(${map(cp,0,1,180,-100)}px,${map(cp,0,1,-100,150)}px,0) rotate(${map(cp,0,1,15,80)}deg) scale(${map(cp,0,1,.7,1.2)})`;
+     document.querySelector('.care-line').style.transform=`translate3d(${map(cp,0,1,-180,180)}px,${map(cp,0,1,100,-100)}px,0) rotate(${map(cp,0,1,-18,18)}deg)`;
+   }
+   ticking.v=false;
+ }
+ window.addEventListener('scroll',()=>{if(!ticking.v){ticking.v=true;requestAnimationFrame(update)}},{passive:true});
+ window.addEventListener('resize',update);
+ update();
+
+ /* Intersection reveal for normal sections */
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+ menu.addEventListener('click',()=>{
+   const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);
+ });
+ document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+ /* CSS custom property for image pseudo-elements */
+ const style=document.createElement('style');
+ style.textContent='.service-media:before{transform:translate3d(0,var(--py,0),0) scale(1.12)}.service-media:after{transform:translate3d(0,var(--py,0),0) rotate(calc(-8deg + var(--rot,0deg)))}.species:before{transform:translate3d(0,var(--imgY,0),0) scale(1.1)}';
+ document.head.appendChild(style);
+})();
+</script>
+</body>
+</html>
