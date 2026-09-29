@@ -2,407 +2,747 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Maison de Paw — 高端寵物生活與照護空間">
-<title>Maison de Paw — Pet Lifestyle & Care</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison de Paw｜寵物生活與照護空間</title>
+<meta name="description" content="Maison de Paw — 陪伴、照護、理解。整合寵物用品、美容、寄宿、飼養建議與日常陪伴的寵物生活空間。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ivory:#f4f0e8;--paper:#ebe3d6;--cream:#ddd2c2;--sage:#8b9282;
-  --olive:#5f6659;--brown:#9a8975;--ink:#272622;--white:#fbfaf6;
-  --line:rgba(39,38,34,.2);--ease:cubic-bezier(.16,.8,.18,1)
+  --warm-white:#FBF8F3;
+  --ivory:#F6F1E8;
+  --cream:#EFE7DA;
+  --beige:#E2D5C3;
+  --warm-gray:#A69C90;
+  --stone:#6F675E;
+  --charcoal:#2B2825;
+  --ink:#1E1C1A;
+  --sage:#8F9A86;
+  --sage-deep:#66715F;
+  --brown:#8A6A50;
+  --line:rgba(43,40,37,.14);
+  --serif:"Cormorant Garamond","Noto Serif TC",Georgia,serif;
+  --serif-tc:"Noto Serif TC","Cormorant Garamond",serif;
+  --sans:"Inter","Noto Sans TC",system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --gutter:clamp(20px,5vw,72px);
+  --maxw:1320px;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--ivory);color:var(--ink);font-family:Arial,"Noto Sans TC",sans-serif;overflow-x:hidden}
-body::-webkit-scrollbar{width:7px}body::-webkit-scrollbar-thumb{background:#aaa193}
-a{text-decoration:none;color:inherit}
-button,a{outline-offset:5px}
-button:focus-visible,a:focus-visible{outline:1px solid currentColor}
-#progress{position:fixed;z-index:999;top:0;left:0;width:0;height:3px;background:var(--ink)}
-.nav{position:fixed;z-index:100;top:0;left:0;width:100%;padding:25px 5vw;display:flex;justify-content:space-between;align-items:center;color:white;mix-blend-mode:difference;transition:.4s}
-.nav.scrolled{mix-blend-mode:normal;background:rgba(244,240,232,.9);color:var(--ink);padding-top:16px;padding-bottom:16px;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.logo{font-family:Georgia,serif;font-size:19px;letter-spacing:.08em}
-.navlinks{display:flex;gap:32px;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
-.navlinks a{position:relative}.navlinks a:after{content:"";position:absolute;bottom:-8px;left:0;width:0;height:1px;background:currentColor;transition:.3s}.navlinks a:hover:after{width:100%}
-.menu{display:none;border:0;background:none;font-size:22px;color:inherit}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--warm-white);color:var(--charcoal);font-family:var(--sans);font-weight:300;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,h4{margin:0;font-weight:400}
+p{margin:0}
+:focus-visible{outline:2px solid var(--brown);outline-offset:4px;border-radius:2px}
+.skip{position:absolute;left:16px;top:-60px;z-index:200;background:var(--charcoal);color:var(--ivory);padding:10px 18px;font-size:14px;transition:top .3s}
+.skip:focus{top:16px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+section{position:relative}
+[id]{scroll-margin-top:72px}
 
-.hero{height:120vh;position:relative;background:#d8cdbd}
-.hero-stage{position:sticky;top:0;height:100svh;min-height:650px;overflow:hidden}
-.hero-base{position:absolute;inset:-15%;background:
-linear-gradient(115deg,rgba(31,30,27,.48),rgba(31,30,27,.08) 65%,rgba(31,30,27,.22)),
-url("https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=2400&q=90") center/cover;
-transform:scale(1.12);will-change:transform}
-.geo{position:absolute;display:block;will-change:transform,opacity}
-.hero-circle{width:34vw;height:34vw;max-width:520px;max-height:520px;border:1px solid rgba(39,38,34,.35);border-radius:50%;right:5%;top:8%;transform:translate3d(0,0,0)}
-.hero-circle2{width:21vw;height:21vw;max-width:320px;max-height:320px;background:rgba(139,146,130,.70);border-radius:50%;left:4%;bottom:8%;opacity:.82}
-.hero-block{width:37vw;height:22vw;max-width:600px;max-height:350px;background:rgba(154,137,117,.72);right:-5%;bottom:12%;transform:rotate(-12deg)}
-.hero-line{width:150vw;height:1px;background:rgba(39,38,34,.35);left:-20%;top:50%;transform:rotate(-16deg)}
-.hero-line2{width:120vw;height:1px;background:rgba(39,38,34,.18);left:-10%;top:63%;transform:rotate(24deg)}
-.hero-ring{width:27vw;height:27vw;border:2px solid rgba(255,255,255,.58);border-radius:50%;left:25%;top:15%}
-.hero-photo-glow{position:absolute;z-index:1;width:42vw;height:42vw;border-radius:50%;right:18%;top:20%;background:rgba(255,250,240,.10);backdrop-filter:blur(1px);will-change:transform}
-.hero-content{position:absolute;z-index:5;inset:0;display:flex;align-items:flex-end;padding:0 5vw 9vh;color:#272622}
-.hero-copy{max-width:950px}
-.eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:22px}
-.hero h1{font-family:Georgia,serif;font-size:clamp(60px,9.5vw,150px);font-weight:400;line-height:.82;letter-spacing:-.06em;margin:0;will-change:transform,opacity}
-.hero-sub{font-size:15px;line-height:1.8;margin:30px 0 0;max-width:460px}
-.hero-buttons{display:flex;gap:12px;margin-top:25px}
-.btn{min-height:48px;padding:0 24px;display:inline-flex;align-items:center;justify-content:center;border:1px solid currentColor;font-size:10px;letter-spacing:.13em;text-transform:uppercase;transition:.3s var(--ease)}
-.btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 15px 30px rgba(39,38,34,.14)}
-.btn-dark{background:var(--ink);color:var(--white)}
-.scroll-label{position:absolute;z-index:6;right:5vw;bottom:35px;font-size:9px;letter-spacing:.25em;writing-mode:vertical-rl}
-.scroll-label:after{content:"";display:block;width:1px;height:60px;background:currentColor;margin:12px auto 0}
+/* ---------- media with graceful fallback ---------- */
+.media{position:relative;overflow:hidden;background:
+  radial-gradient(120% 90% at 20% 15%,rgba(255,255,255,.55),transparent 60%),
+  linear-gradient(145deg,var(--cream),var(--beige) 55%,#CDBBA5)}
+.media::before{content:"";position:absolute;inset:0;opacity:.35;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .3 0 0 0 .25 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.media[data-label]::after{content:attr(data-label);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.4vw,34px);color:rgba(43,40,37,.35);letter-spacing:.02em;white-space:nowrap}
+.media img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover}
+.media.sage{background:radial-gradient(120% 90% at 80% 20%,rgba(255,255,255,.45),transparent 60%),linear-gradient(160deg,#DDE0D5,#B9C0AF 60%,#9AA38F)}
+.media.dusk{background:radial-gradient(100% 80% at 30% 20%,rgba(255,230,200,.35),transparent 60%),linear-gradient(160deg,#6B5D50,#3E3731 70%,#2B2825)}
 
-.section{position:relative;padding:150px 0;overflow:hidden}
-.container{width:min(90%,1400px);margin:auto}
-.section-title{display:grid;grid-template-columns:.55fr 1.45fr;gap:8vw;margin-bottom:90px;position:relative;z-index:2}
-.kicker{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#69645b}
-h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(50px,7vw,100px);line-height:.88;letter-spacing:-.05em;margin:0}
-.lead{font-size:20px;line-height:1.7;max-width:700px}
+/* ---------- progress + nav ---------- */
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--sage),var(--brown));z-index:120}
+.nav{position:fixed;inset:0 0 auto;z-index:100;transition:background .5s var(--ease),box-shadow .5s var(--ease),color .5s var(--ease),padding .5s var(--ease);color:var(--ivory);padding:26px 0}
+.nav.scrolled{background:rgba(251,248,243,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--charcoal);box-shadow:0 1px 0 var(--line);padding:14px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:var(--serif);font-size:26px;font-weight:500;letter-spacing:.01em;line-height:1;display:flex;align-items:baseline;gap:.28em}
+.logo em{font-style:italic;font-weight:400;opacity:.8}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:clamp(22px,3vw,44px)}
+.nav-link{position:relative;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:400;padding:6px 0}
+.nav-link::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease-out)}
+.nav-link:hover::after,.nav-link:focus-visible::after,.nav-link.active::after{transform:scaleX(1);transform-origin:left}
+.burger{display:none;width:44px;height:44px;position:relative;z-index:130}
+.burger span{position:absolute;left:10px;right:10px;height:1px;background:currentColor;transition:transform .45s var(--ease-out),opacity .3s,top .45s var(--ease-out)}
+.burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:26px}
+.burger[aria-expanded="true"] span:nth-child(1){top:22px;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){top:22px;transform:rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:110;background:var(--ivory);color:var(--charcoal);display:flex;flex-direction:column;justify-content:center;padding:0 28px;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu ol{list-style:none;margin:0;padding:0;counter-reset:m}
+.mobile-menu li{counter-increment:m;border-bottom:1px solid var(--line);overflow:hidden}
+.mobile-menu a{display:flex;align-items:baseline;gap:18px;padding:18px 0;font-family:var(--serif);font-size:clamp(34px,9vw,52px);line-height:1.1;transform:translateY(100%);transition:transform .7s var(--ease-out)}
+.mobile-menu a::before{content:"0" counter(m);font-family:var(--sans);font-size:11px;letter-spacing:.2em;color:var(--warm-gray)}
+.mobile-menu.open a{transform:none}
+.mobile-menu li:nth-child(2) a{transition-delay:.05s}.mobile-menu li:nth-child(3) a{transition-delay:.1s}.mobile-menu li:nth-child(4) a{transition-delay:.15s}.mobile-menu li:nth-child(5) a{transition-delay:.2s}
+.mobile-menu p{margin-top:40px;font-size:13px;color:var(--stone);letter-spacing:.1em}
+body.menu-open{overflow:hidden}
+body.menu-open .nav{color:var(--charcoal)}
 
-.about{background:var(--ivory);min-height:115vh}
-.about-bg-circle{position:absolute;width:60vw;height:60vw;border-radius:50%;background:#e5dccf;right:-25vw;top:5%;will-change:transform}
-.about-line{position:absolute;width:130vw;height:1px;background:var(--line);left:-10%;top:58%;transform:rotate(-8deg);will-change:transform}
-.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:8vw;align-items:center;position:relative;z-index:2}
-.about-visual{height:650px;position:relative;overflow:hidden;background:#c7b9a7;will-change:transform}
-.about-photo{position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1600&q=85") center/cover;filter:saturate(.72);will-change:transform}
-.about-frame{position:absolute;inset:8%;border:1px solid rgba(255,255,255,.55);transform:rotate(5deg);will-change:transform}
-.about-copy p{font-size:20px;line-height:1.9;margin:0 0 25px}.note{border-top:1px solid var(--line);padding-top:18px;font-size:12px;line-height:1.8;color:#6d685f}
+/* ---------- buttons ---------- */
+.btn{--bg:var(--charcoal);--fg:var(--ivory);display:inline-flex;align-items:center;gap:14px;padding:17px 30px;font-size:13px;letter-spacing:.14em;font-weight:400;background:var(--bg);color:var(--fg);border:1px solid var(--bg);border-radius:999px;transition:background .45s var(--ease),color .45s var(--ease),border-color .45s var(--ease),transform .45s var(--ease-out),box-shadow .45s var(--ease)}
+.btn svg{width:16px;height:16px;transition:transform .45s var(--ease-out)}
+.btn:hover,.btn:focus-visible{background:var(--sage-deep);border-color:var(--sage-deep);color:#fff;transform:translateY(-3px) scale(1.03);box-shadow:0 18px 40px -14px rgba(43,40,37,.45)}
+.btn:hover svg,.btn:focus-visible svg{transform:translateX(4px)}
+.btn:active{transform:translateY(-1px) scale(1.01)}
+.btn.ghost{--bg:transparent;--fg:currentColor;border-color:currentColor}
+.btn.ghost:hover,.btn.ghost:focus-visible{background:var(--ivory);color:var(--charcoal);border-color:var(--ivory)}
+.btn.light{--bg:var(--ivory);--fg:var(--charcoal)}
+.btn.light:hover,.btn.light:focus-visible{background:var(--sage);border-color:var(--sage);color:#fff}
+.btn.line{--bg:transparent;--fg:var(--charcoal);border-color:var(--charcoal)}
+.btn.line:hover,.btn.line:focus-visible{background:var(--charcoal);color:var(--ivory);border-color:var(--charcoal)}
 
-.manifesto{height:120vh;background:#3b3d37;color:var(--white);position:relative}
-.manifesto-stage{height:100svh;position:sticky;top:0;overflow:hidden}
-.manifesto-bg{position:absolute;inset:-15%;background:linear-gradient(135deg,#5d6458,#343630 48%,#777361);will-change:transform}
-.manifesto-grid{position:absolute;inset:-20%;background-image:linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px);background-size:12vw 12vw;transform:rotate(18deg);will-change:transform}
-.manifesto-square{position:absolute;width:35vw;height:35vw;border:1px solid rgba(255,255,255,.4);right:8%;top:8%;transform:rotate(30deg);will-change:transform}
-.manifesto-disc{position:absolute;width:20vw;height:20vw;border-radius:50%;background:#a49784;left:8%;bottom:7%;will-change:transform}
-.manifesto-content{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;text-align:center}
-.manifesto-content h2{font-size:clamp(58px,10vw,150px);will-change:transform,opacity}
-.manifesto-caption{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);letter-spacing:.15em;font-size:12px;white-space:nowrap}
+/* ---------- shared type ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--stone);font-weight:400}
+.eyebrow::before{content:"";width:36px;height:1px;background:currentColor;opacity:.6}
+.display{font-family:var(--serif);font-weight:400;line-height:.98;letter-spacing:-.015em}
+.display em{font-style:italic;color:var(--brown)}
+.tc{font-family:var(--serif-tc);font-weight:400;letter-spacing:.08em}
+.lead{font-size:clamp(15px,1.15vw,17px);color:var(--stone);max-width:34em}
 
-.services{background:#e9e1d5}
-.service-intro{position:relative;z-index:2}
-.service-list{position:relative}
-.service{height:90vh;min-height:620px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);position:relative;overflow:hidden}
-.service-media{position:relative;overflow:hidden}
-.service-media:before{content:"";position:absolute;inset:-12%;background-size:cover;background-position:center;will-change:transform}
-.s1:before{background-image:url("https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1600&q=85")}
-.s2:before{background-image:url("https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1600&q=85")}
-.s3:before{background-image:url("https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1600&q=85")}
-.s4:before{background-image:url("https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1800&q=90")}
-.service-media:after{content:"";position:absolute;width:55%;height:55%;border:1px solid rgba(255,255,255,.55);left:22%;top:20%;transform:rotate(-8deg);will-change:transform}
-.s4{background:#b7aa98}
-.s4:before{background-position:center 42%;filter:saturate(.68) contrast(.98)}
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(64px) scale(.94);transition:opacity 1.1s var(--ease-out),transform 1.3s var(--ease-out);transition-delay:var(--d,0s);will-change:opacity,transform}
+.reveal.in{opacity:1;transform:none}
+.reveal-img{clip-path:inset(12% 0 0 0);transition:clip-path 1.5s var(--ease-out),opacity 1.1s var(--ease-out),transform 1.4s var(--ease-out)}
+.reveal-img.in{clip-path:inset(0 0 0 0)}
 
-.service-copy{display:flex;flex-direction:column;justify-content:center;padding:8vw;position:relative;z-index:2}
-.service:nth-child(even) .service-media{order:2}.service:nth-child(even) .service-copy{order:1}
-.service-no{font-size:10px;letter-spacing:.25em;color:#706b62;margin-bottom:30px}
-.service h3{font-family:Georgia,serif;font-size:clamp(42px,5vw,72px);font-weight:400;line-height:.92;margin:0 0 25px}
-.service p{max-width:470px;color:#6b665e;line-height:1.9}
+/* ---------- HERO ---------- */
+.hero{height:100vh;height:100svh;min-height:640px;overflow:hidden;color:var(--ivory);background:#2B2825;isolation:isolate}
+.hero-bg{position:absolute;left:0;right:0;top:-18%;bottom:-18%;z-index:-2}
+.hero-bg .media{position:absolute;inset:0}
+.hero-bg img{transform:scale(1.08)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:
+  linear-gradient(90deg,rgba(30,28,26,.78) 0%,rgba(30,28,26,.45) 45%,rgba(30,28,26,.1) 100%),
+  linear-gradient(0deg,rgba(30,28,26,.55),transparent 40%)}
+.hero-inner{position:relative;height:100%;display:grid;grid-template-columns:1.15fr .85fr;align-items:end;gap:40px;padding-bottom:clamp(64px,11vh,120px)}
+.hero-copy{position:relative;z-index:2}
+.hero-copy .eyebrow{color:rgba(246,241,232,.8)}
+.hero h1{font-size:clamp(54px,8.4vw,132px);margin:28px 0 30px}
+.hero h1 em{color:#E6D3BC}
+.hero .sub{font-family:var(--serif-tc);font-size:clamp(17px,1.5vw,21px);letter-spacing:.06em;margin-bottom:10px}
+.hero .motto{font-size:13px;letter-spacing:.5em;opacity:.75;margin-bottom:44px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
+.hero-fg{position:relative;align-self:center;justify-self:end;width:min(100%,400px);z-index:2}
+.hero-fg .frame{aspect-ratio:3/4;border-radius:220px 220px 4px 4px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.hero-fg figcaption{margin-top:18px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.24em;text-transform:uppercase;opacity:.8}
+.hero-intro{opacity:0;transform:translateY(40px);animation:heroIn 1.4s var(--ease-out) forwards}
+@keyframes heroIn{to{opacity:1;transform:none}}
+.scroll-ind{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:rgba(246,241,232,.8);z-index:3}
+.scroll-ind i{display:block;width:1px;height:52px;background:rgba(246,241,232,.3);position:relative;overflow:hidden}
+.scroll-ind i::after{content:"";position:absolute;left:0;top:-50%;width:100%;height:50%;background:var(--ivory);animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{to{top:100%}}
 
-.companions{background:var(--ivory);min-height:120vh}
-.species-stage{position:relative;height:760px}
-.species{position:absolute;overflow:hidden;background:#b8aa98;will-change:transform}
-.species:before{content:"";position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.65);transform:scale(1.1);will-change:transform}
-.species:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(20,19,17,.72))}
-.species span{position:absolute;z-index:2;left:25px;bottom:25px;color:#fff;font-family:Georgia,serif;font-size:30px}
-.dog{width:30%;height:43%;left:0;top:5%}.cat{width:25%;height:34%;left:34%;top:0}.rabbit{width:34%;height:48%;right:0;top:12%}
-.hamster{width:23%;height:31%;left:14%;bottom:2%}.aquatic{width:29%;height:38%;left:40%;bottom:7%}.reptile{width:25%;height:31%;right:7%;bottom:0}
-.dog:before{background-image:url("https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=85")}
-.cat:before{background-image:url("https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=900&q=85")}
-.rabbit:before{background-image:url("https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=900&q=85")}
-.hamster:before{background-image:url("https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=900&q=85")}
-.aquatic:before{background-image:url("https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=900&q=85")}
-.reptile:before{background-image:url("https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&w=900&q=85")}
+/* ---------- BANNER ---------- */
+.banner{height:78vh;min-height:520px;overflow:hidden;color:var(--ivory);display:flex;align-items:center;isolation:isolate}
+.banner-bg{position:absolute;left:0;right:0;top:-30%;bottom:-30%;z-index:-2}
+.banner-bg .media{position:absolute;inset:0}
+.banner::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(30,28,26,.35),rgba(30,28,26,.55))}
+.banner-inner{position:relative;width:100%}
+.banner h2{font-size:clamp(46px,9.5vw,160px);line-height:.92;letter-spacing:-.02em}
+.banner h2 span{display:block}
+.banner h2 span:nth-child(2){padding-left:12vw;font-style:italic}
+.banner .tc{margin-top:28px;font-size:clamp(16px,1.6vw,22px);letter-spacing:.3em;padding-left:12vw}
+.banner-float{position:absolute;right:var(--gutter);bottom:-6%;width:clamp(150px,18vw,260px);aspect-ratio:4/5;box-shadow:0 30px 70px -20px rgba(0,0,0,.55);z-index:2}
 
-.care{height:125vh;background:#e1d8ca;position:relative}
-.care-photo{position:absolute;inset:-15%;background:
-linear-gradient(90deg,rgba(38,39,34,.72),rgba(38,39,34,.30) 52%,rgba(38,39,34,.58)),
-url("https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=2400&q=90") center/cover;
-will-change:transform;filter:saturate(.78)}
-.care-photo-wash{position:absolute;width:48vw;height:48vw;left:8%;top:8%;background:rgba(215,204,188,.18);mix-blend-mode:screen;transform:rotate(20deg);will-change:transform}
-.care-stage{position:sticky;top:0;height:100svh;overflow:hidden}
-.care-ring{position:absolute;width:65vw;height:65vw;border:1px solid rgba(255,255,255,.35);border-radius:50%;left:-22%;top:8%;will-change:transform}
-.care-ring2{position:absolute;width:35vw;height:35vw;border:1px solid rgba(255,255,255,.28);border-radius:50%;right:-4%;bottom:-10%;will-change:transform}
-.care-block{position:absolute;width:32vw;height:32vw;background:rgba(154,141,122,.68);right:13%;top:16%;transform:rotate(15deg);will-change:transform}
-.care-line{position:absolute;width:130vw;height:1px;background:rgba(255,255,255,.35);top:52%;left:-15%;transform:rotate(-18deg);will-change:transform}
-.care-content{position:relative;z-index:3;width:min(90%,1200px);height:100%;margin:auto;display:flex;flex-direction:column;justify-content:center;color:#fbfaf6}
-.care-content .kicker{color:rgba(251,250,246,.72)}
-.care-content h2{max-width:950px}.care-copy{max-width:650px;margin:50px 0 0 auto;font-size:19px;line-height:2;color:rgba(251,250,246,.82)}
+/* ---------- ABOUT ---------- */
+.about{padding:clamp(100px,16vh,180px) 0 clamp(90px,14vh,160px);background:var(--warm-white)}
+.about-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;align-items:start}
+.about-head{grid-column:1/8}
+.about-head h2{font-size:clamp(48px,6.6vw,104px);margin:26px 0 18px}
+.about-head .tc{font-size:clamp(18px,1.6vw,22px);color:var(--stone)}
+.about-meta{grid-column:9/13;padding-top:70px;border-top:1px solid var(--line);margin-top:70px;font-size:13px;color:var(--stone);letter-spacing:.06em}
+.about-meta strong{display:block;font-family:var(--serif);font-weight:400;font-size:44px;color:var(--charcoal);line-height:1;margin-bottom:8px;letter-spacing:0}
+.about-img1{grid-column:1/6;margin-top:90px;aspect-ratio:4/5}
+.about-body{grid-column:7/12;margin-top:150px}
+.about-body .dropcap::first-letter{font-family:var(--serif);float:left;font-size:4.2em;line-height:.85;padding:6px 12px 0 0;color:var(--brown)}
+.about-body p+p{margin-top:22px}
+.about-body p{color:var(--stone);font-size:16px}
+.about-list{margin:44px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.about-list li{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);transition:padding .45s var(--ease-out),color .3s}
+.about-list li:hover{padding-left:12px;color:var(--brown)}
+.about-list span:first-child{font-family:var(--serif-tc);font-size:18px;letter-spacing:.1em}
+.about-list span:last-child{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--warm-gray)}
+.about-img2{grid-column:8/13;margin-top:-40px;aspect-ratio:16/11}
+.about-quote{grid-column:2/7;margin-top:-60px;align-self:end;font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.4vw,34px);line-height:1.3;color:var(--charcoal)}
+.about-quote small{display:block;margin-top:14px;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--warm-gray)}
 
-.cta{padding:160px 0;background:#f0ebe3;position:relative;overflow:hidden}
-.cta:before{content:"";position:absolute;width:32vw;height:32vw;border:1px solid var(--line);border-radius:50%;right:-8%;top:-30%;will-change:transform}
-.cta-inner{position:relative;z-index:2;display:flex;align-items:end;justify-content:space-between;gap:40px}
-.cta h2{font-size:clamp(52px,7vw,105px)}
-.cta-actions{display:flex;gap:10px;flex-shrink:0}
-.contact{padding:120px 0;background:var(--ivory)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:8vw}.contact h3{font-family:Georgia,serif;font-size:44px;font-weight:400;margin:25px 0}.contact p{line-height:1.9;color:#6c675f}
-.hours{border-top:1px solid var(--line);padding-top:22px}.hours strong{font-size:22px;font-weight:400}
-footer{border-top:1px solid var(--line);padding:30px 5vw;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#6b665e}
+/* ---------- SERVICES ---------- */
+.services{padding:clamp(100px,14vh,160px) 0;background:var(--ivory)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:clamp(70px,10vh,120px);flex-wrap:wrap}
+.sec-head h2{font-size:clamp(46px,6vw,96px);margin-top:22px}
+.sec-head .lead{max-width:26em}
+.svc{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center;padding:clamp(40px,6vh,70px) 0}
+.svc+.svc{border-top:1px solid var(--line)}
+.svc-media{grid-column:1/7;aspect-ratio:5/4;position:relative}
+.svc-media .media{height:100%;transition:transform 1.2s var(--ease-out)}
+.svc-media:hover .media img{transform:scale(1.05)}
+.svc-media .media img{transition:transform 1.6s var(--ease-out)}
+.svc-text{grid-column:8/13}
+.svc:nth-child(even) .svc-media{grid-column:7/13;order:2}
+.svc:nth-child(even) .svc-text{grid-column:1/6;order:1}
+.svc-num{font-family:var(--serif);font-size:clamp(70px,8vw,130px);line-height:.8;color:var(--beige);display:block;margin-bottom:18px}
+.svc h3{font-family:var(--serif);font-size:clamp(34px,3.4vw,52px);line-height:1.05}
+.svc .tc{display:block;margin:12px 0 22px;font-size:17px;color:var(--brown)}
+.svc p{color:var(--stone);max-width:30em}
+.svc ul{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.svc li{font-size:12px;letter-spacing:.08em;padding:8px 16px;border:1px solid var(--line);border-radius:999px;color:var(--stone);transition:background .35s,color .35s,border-color .35s}
+.svc li:hover{background:var(--charcoal);color:var(--ivory);border-color:var(--charcoal)}
+.svc-note{margin-top:24px;font-size:13px;color:var(--sage-deep);padding-left:16px;border-left:1px solid var(--sage)}
 
-/* Scroll reveal */
-.reveal{opacity:0;transform:translate3d(0,90px,0) scale(.92);filter:blur(4px);transition:opacity .9s var(--ease),transform 1s var(--ease),filter .9s ease}
-.reveal.in{opacity:1;transform:none;filter:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+/* ---------- COMPANIONS ---------- */
+.companions{padding:clamp(100px,14vh,170px) 0;background:var(--warm-white)}
+.comp-head{text-align:center;max-width:900px;margin:0 auto clamp(70px,10vh,110px)}
+.comp-head h2{font-size:clamp(44px,6vw,96px);margin:22px 0 18px}
+.comp-head .tc{font-size:clamp(17px,1.5vw,21px);color:var(--stone)}
+.comp-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(40px,6vh,80px) 24px}
+.comp{position:relative}
+.comp a{display:block}
+.comp .media{aspect-ratio:3/4}
+.comp .media img{transition:transform 1.4s var(--ease-out),filter 1s}
+.comp:hover .media img{transform:scale(1.06);filter:saturate(.85)}
+.comp-cap{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.comp-cap h3{font-family:var(--serif);font-size:clamp(26px,2.2vw,34px);line-height:1}
+.comp-cap span{font-family:var(--serif-tc);font-size:14px;color:var(--warm-gray);letter-spacing:.2em}
+.comp p{margin-top:10px;font-size:14px;color:var(--stone);max-width:24em}
+.c1{grid-column:1/6}.c1 .media{aspect-ratio:4/5}
+.c2{grid-column:7/11;margin-top:120px}
+.c3{grid-column:2/5}
+.c4{grid-column:6/9;margin-top:80px}
+.c5{grid-column:10/13;margin-top:-60px}
+.c5 .media{aspect-ratio:3/5}
+.c6{grid-column:1/5;margin-top:40px}
+.c7{grid-column:6/9;margin-top:-40px}.c7 .media{aspect-ratio:1/1}
+.c8{grid-column:9/13;margin-top:100px}.c8 .media{aspect-ratio:4/5}
 
-/* Mobile */
-@media(max-width:900px){
- .navlinks{display:none}.menu{display:block}
- .nav.open .navlinks{position:absolute;top:64px;left:0;width:100%;padding:25px 5vw;display:flex;flex-direction:column;gap:20px;background:rgba(244,240,232,.97);color:var(--ink);mix-blend-mode:normal}
- .section{padding:100px 0}.section-title{grid-template-columns:1fr;gap:28px;margin-bottom:60px}
- .about-grid{grid-template-columns:1fr}.about-visual{height:520px}
- .service{height:auto;min-height:0;grid-template-columns:1fr}.service:nth-child(even) .service-media{order:1}.service:nth-child(even) .service-copy{order:2}
- .service-media{height:60vh;min-height:400px}.service-copy{min-height:420px;padding:70px 8vw}
- .species-stage{height:850px}.dog{width:48%;height:30%;}.cat{width:42%;height:25%;left:55%}.rabbit{width:53%;height:30%;right:0;top:34%}.hamster{width:39%;height:22%;left:4%;bottom:20%}.aquatic{width:48%;height:25%;left:45%;bottom:8%}.reptile{width:38%;height:22%;right:4%;bottom:0}
- .cta-inner,.contact-grid{grid-template-columns:1fr;display:grid}.cta-actions{width:100%;flex-direction:column}.cta-actions .btn{width:100%}
+/* ---------- CARE ---------- */
+.care{padding:clamp(120px,18vh,220px) 0;background:var(--charcoal);color:var(--ivory);overflow:hidden}
+.care .eyebrow{color:rgba(246,241,232,.6)}
+.care-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center}
+.care-title{grid-column:1/13}
+.care-title h2{font-size:clamp(52px,9vw,150px);margin-top:30px;line-height:.92}
+.care-title h2 span{display:block}
+.care-title h2 span:nth-child(2){padding-left:10vw}
+.care-title h2 em{color:#D7BFA3}
+.care-title .tc{display:block;margin-top:24px;padding-left:10vw;font-size:clamp(18px,1.8vw,24px);letter-spacing:.3em;color:rgba(246,241,232,.7)}
+.care-img{grid-column:1/6;margin-top:100px;aspect-ratio:4/5}
+.care-body{grid-column:7/12;margin-top:100px}
+.care-body blockquote{margin:0;font-family:var(--serif-tc);font-size:clamp(22px,2.3vw,34px);line-height:1.75;letter-spacing:.06em}
+.care-body blockquote::before{content:"“";display:block;font-family:var(--serif);font-size:120px;line-height:.5;color:var(--brown);margin-bottom:18px}
+.pillars{margin-top:60px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(246,241,232,.18)}
+.pillars div{padding:24px 18px 0 0}
+.pillars b{display:block;font-family:var(--serif);font-weight:400;font-size:30px;font-style:italic}
+.pillars span{font-size:13px;color:rgba(246,241,232,.65);letter-spacing:.2em}
+.care-note{margin-top:48px;font-size:13px;color:rgba(246,241,232,.6);padding:18px 0 0;border-top:1px solid rgba(246,241,232,.12);max-width:36em}
+
+/* ---------- CTA ---------- */
+.cta{padding:clamp(110px,16vh,190px) 0;background:var(--cream);text-align:center;overflow:hidden}
+.cta::before{content:"";position:absolute;left:50%;top:50%;width:min(900px,120vw);aspect-ratio:1;transform:translate(-50%,-50%);border:1px solid rgba(138,106,80,.18);border-radius:50%;pointer-events:none}
+.cta::after{content:"";position:absolute;left:50%;top:50%;width:min(620px,86vw);aspect-ratio:1;transform:translate(-50%,-50%);border:1px solid rgba(138,106,80,.14);border-radius:50%;pointer-events:none}
+.cta-bg{position:absolute;left:0;right:0;top:-20%;bottom:-20%;pointer-events:none}
+.cta-bg img{width:100%;height:100%;object-fit:cover;opacity:.16;filter:grayscale(.35) sepia(.25)}
+.cta .wrap{position:relative;z-index:1}
+.cta h2{font-family:var(--serif-tc);font-size:clamp(34px,5vw,72px);line-height:1.35;letter-spacing:.06em;margin:28px auto 22px;max-width:14em}
+.cta p{color:var(--stone);margin:0 auto 48px;max-width:30em}
+.cta-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:16px}
+
+/* ---------- CONTACT ---------- */
+.contact{padding:clamp(100px,14vh,160px) 0;background:var(--warm-white)}
+.contact-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.contact-left{grid-column:1/6}
+.contact-left h2{font-size:clamp(48px,5.6vw,88px);margin-top:22px}
+.contact-left h2 em{display:block}
+.contact-right{grid-column:7/13;padding-top:20px}
+.info-row{display:grid;grid-template-columns:160px 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--line)}
+.info-row:last-child{border-bottom:1px solid var(--line)}
+.info-row dt{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--warm-gray);padding-top:8px}
+.info-row dd{margin:0}
+.hours{font-family:var(--serif);font-size:clamp(44px,5vw,72px);line-height:1;letter-spacing:.02em}
+.info-row dd p{color:var(--stone);margin-top:12px;font-size:15px}
+.brand-name{font-family:var(--serif);font-size:32px;line-height:1.1}
+.brand-name small{display:block;font-family:var(--serif-tc);font-size:15px;color:var(--stone);margin-top:8px;letter-spacing:.14em}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:rgba(246,241,232,.7);padding:80px 0 36px;overflow:hidden}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;padding-bottom:48px;border-bottom:1px solid rgba(246,241,232,.12)}
+.foot-logo{font-family:var(--serif);font-size:clamp(52px,10vw,150px);color:var(--ivory);line-height:.9;letter-spacing:-.02em}
+.foot-logo em{font-style:italic;color:#C9B196}
+footer nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:26px}
+footer nav a{font-size:12px;letter-spacing:.22em;text-transform:uppercase;transition:color .3s}
+footer nav a:hover,footer nav a:focus-visible{color:var(--ivory)}
+.foot-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:28px;font-size:12px;letter-spacing:.08em}
+.to-top{display:inline-flex;align-items:center;gap:10px;transition:color .3s,transform .4s var(--ease-out)}
+.to-top:hover,.to-top:focus-visible{color:var(--ivory);transform:translateY(-3px)}
+
+/* ---------- RESPONSIVE: tablet ---------- */
+@media (max-width:1199px){
+  .nav ul{gap:22px}
+  .hero-inner{grid-template-columns:1.3fr .7fr}
+  .about-head{grid-column:1/10}
+  .about-meta{grid-column:1/7;margin-top:40px;padding-top:30px}
+  .about-img1{grid-column:1/7;margin-top:60px}
+  .about-body{grid-column:8/13;margin-top:60px}
+  .about-img2{grid-column:5/13;margin-top:60px}
+  .about-quote{grid-column:1/5;margin-top:60px;font-size:24px}
+  .svc-media{grid-column:1/7}
+  .svc-text{grid-column:7/13}
+  .svc:nth-child(even) .svc-media{grid-column:7/13}
+  .svc:nth-child(even) .svc-text{grid-column:1/7}
+  .comp-grid{grid-template-columns:repeat(6,1fr);gap:56px 22px}
+  .comp{grid-column:span 3 !important;margin-top:0 !important}
+  .comp:nth-child(even){margin-top:70px !important}
+  .comp .media{aspect-ratio:4/5 !important}
+  .care-img{grid-column:1/7}
+  .care-body{grid-column:7/13}
+  .contact-left{grid-column:1/13}
+  .contact-right{grid-column:1/13}
 }
-@media(max-width:600px){
- .hero-photo-glow{width:65vw;height:65vw}.hero{height:115vh}.hero h1{font-size:58px}.hero-content{padding-bottom:90px}.hero-circle{width:65vw;height:65vw}.hero-block{width:65vw;height:40vw}.hero-ring{width:52vw;height:52vw}
- .manifesto{height:115vh}.manifesto-content h2{font-size:55px}.manifesto-square{width:55vw;height:55vw}.manifesto-disc{width:32vw;height:32vw}
- .species-stage{height:780px}.species span{font-size:21px;left:16px;bottom:16px}
+/* ---------- RESPONSIVE: mobile ---------- */
+@media (max-width:767px){
+  body{line-height:1.7}
+  [id]{scroll-margin-top:60px}
+  .nav{padding:18px 0}
+  .nav.scrolled{padding:10px 0}
+  .nav ul{display:none}
+  .burger{display:block;margin-right:-10px}
+  .logo{font-size:22px}
+  .hero{min-height:600px}
+  .hero-inner{grid-template-columns:1fr;align-content:end;gap:28px;padding-bottom:96px}
+  .hero::after{background:linear-gradient(0deg,rgba(30,28,26,.85) 10%,rgba(30,28,26,.35) 65%,rgba(30,28,26,.25))}
+  .hero-fg{position:absolute;top:96px;right:0;width:36vw;max-width:170px}
+  .hero-fg figcaption{display:none}
+  .hero h1{font-size:clamp(44px,13vw,64px);margin:18px 0 20px}
+  .hero .motto{margin-bottom:30px;letter-spacing:.36em}
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .hero-ctas .btn{justify-content:space-between}
+  .scroll-ind{bottom:18px}
+  .scroll-ind span{display:none}
+  .banner{height:70vh;min-height:460px}
+  .banner h2 span:nth-child(2),.banner .tc{padding-left:0}
+  .banner .tc{letter-spacing:.2em}
+  .banner-float{width:34vw;bottom:-4%}
+  .about-grid,.svc,.care-grid,.contact-grid{grid-template-columns:1fr;gap:0}
+  .about-grid>*,.care-grid>*,.contact-grid>*{grid-column:1/-1 !important}
+  .about-meta{margin-top:36px}
+  .about-img1{margin-top:48px;aspect-ratio:4/5;width:82%}
+  .about-body{margin-top:48px}
+  .about-img2{margin-top:48px;width:86%;margin-left:auto;aspect-ratio:4/3}
+  .about-quote{margin-top:44px;font-size:24px}
+  .svc{padding:44px 0}
+  .svc-media,.svc-text,.svc:nth-child(even) .svc-media,.svc:nth-child(even) .svc-text{grid-column:1/-1;order:initial}
+  .svc-media{aspect-ratio:4/3;margin-bottom:28px}
+  .svc:nth-child(even) .svc-media{width:92%;margin-left:auto}
+  .svc:nth-child(odd) .svc-media{width:92%}
+  .svc-num{font-size:64px;margin-bottom:10px}
+  .comp-grid{grid-template-columns:1fr 1fr;gap:40px 14px}
+  .comp{grid-column:span 1 !important}
+  .comp:nth-child(even){margin-top:48px !important}
+  .comp-cap{flex-direction:column;gap:6px}
+  .comp-cap h3{font-size:24px}
+  .comp p{font-size:13px}
+  .care-title h2 span:nth-child(2),.care-title .tc{padding-left:0}
+  .care-img{margin-top:56px;aspect-ratio:4/5;width:86%}
+  .care-body{margin-top:48px}
+  .pillars{grid-template-columns:1fr}
+  .pillars div{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid rgba(246,241,232,.12)}
+  .cta-btns{flex-direction:column;align-items:stretch;max-width:340px;margin:0 auto}
+  .cta-btns .btn{justify-content:center}
+  .info-row{grid-template-columns:1fr;gap:10px}
+  .contact-right{padding-top:40px}
+  .foot-top{flex-direction:column;align-items:flex-start}
 }
-@media(prefers-reduced-motion:reduce){
- html{scroll-behavior:auto}.reveal{opacity:1;transform:none;filter:none;transition:none}
- .hero-base,.hero-photo-glow,.care-photo,.care-photo-wash,.geo,.hero h1,.about-bg-circle,.about-line,.about-visual,.about-photo,.about-frame,.manifesto-bg,.manifesto-grid,.manifesto-square,.manifesto-disc,.service-media:before,.service-media:after,.species,.species:before,.care-ring,.care-ring2,.care-block,.care-line,.cta:before{transform:none!important}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;transition-delay:0s !important}
+  .reveal,.reveal-img{opacity:1 !important;transform:none !important;clip-path:none !important}
+  .hero-intro{opacity:1;transform:none}
+  [data-speed]{transform:none !important}
 }
 </style>
 </head>
 <body>
-<div id="progress"></div>
+<a class="skip" href="#main">跳至主要內容</a>
+<div class="progress" id="progress" role="progressbar" aria-label="頁面閱讀進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
 
 <header class="nav" id="nav">
-  <a href="#top" class="logo">Maison de Paw</a>
-  <nav class="navlinks">
-    <a href="#about">About</a><a href="#services">Services</a><a href="#companions">Companions</a><a href="#care">Care</a><a href="#contact">Contact</a>
-  </nav>
-  <button class="menu" id="menu" aria-label="開啟選單" aria-expanded="false">☰</button>
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Maison de Paw 回到頁首">Maison <em>de</em> Paw</a>
+    <nav aria-label="主要導覽">
+      <ul>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#services">Services</a></li>
+        <li><a class="nav-link" href="#companions">Companions</a></li>
+        <li><a class="nav-link" href="#care">Care</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-label="開啟選單" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+  </div>
 </header>
 
-<main id="top">
-<!-- HERO: scroll-controlled multi-layer scene -->
-<section class="hero" id="hero">
- <div class="hero-stage">
-  <div class="hero-base"></div>
-  <span class="geo hero-circle" data-speed="-0.20"></span>
-  <span class="geo hero-circle2" data-speed="0.32"></span>
-  <span class="geo hero-block" data-speed="0.42"></span>
-  <span class="geo hero-line" data-speed="-0.10"></span>
-  <span class="geo hero-line2" data-speed="0.20"></span>
-  <span class="geo hero-ring" data-speed="-0.32"></span>
-  <span class="hero-photo-glow" data-speed="-0.26"></span>
-  <div class="hero-content">
-   <div class="hero-copy" id="heroCopy">
-    <div class="eyebrow">Pet Lifestyle & Care Space</div>
-    <h1 id="heroTitle">Where Every<br>Paw Feels<br>at Home.</h1>
-    <p class="hero-sub">讓每一個毛孩，都能找到安心的生活方式。<br>陪伴、照護、理解。</p>
-    <div class="hero-buttons"><a class="btn btn-dark" href="#services">探索我們的服務</a><a class="btn" href="#about">認識 Maison de Paw</a></div>
-   </div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav aria-label="行動版導覽">
+    <ol>
+      <li><a href="#about" tabindex="-1">About</a></li>
+      <li><a href="#services" tabindex="-1">Services</a></li>
+      <li><a href="#companions" tabindex="-1">Companions</a></li>
+      <li><a href="#care" tabindex="-1">Care</a></li>
+      <li><a href="#contact" tabindex="-1">Contact</a></li>
+    </ol>
+  </nav>
+  <p>陪伴、照護、理解。<br>Opening Hours 10:00 — 20:00</p>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top" data-scope aria-label="Maison de Paw 主視覺">
+  <div class="hero-bg" data-speed="0.35" aria-hidden="true">
+    <div class="media dusk"><img src="https://images.pexels.com/photos/19148552/pexels-photo-19148552.jpeg?auto=compress&cs=tinysrgb&w=2000" alt="" onerror="this.remove()"></div>
   </div>
-  <div class="scroll-label">SCROLL TO EXPLORE</div>
- </div>
-</section>
-
-<section class="section about" id="about">
- <span class="about-bg-circle" data-parallax="-.16"></span><span class="about-line" data-parallax=".28"></span>
- <div class="container">
-  <div class="section-title reveal"><div class="kicker">01 / About</div><h2>More Than<br>A Pet Store.</h2></div>
-  <div class="about-grid">
-   <div class="about-visual reveal" data-parallax=".10"><div class="about-photo"></div><div class="about-frame" data-parallax="-.22"></div></div>
-   <div class="about-copy reveal d1"><p>Maison de Paw 是一個以「陪伴、照護、理解」為核心的寵物生活空間。</p><p>我們將日常用品、照護、美容、寄宿與飼養建議放進同一種生活語境裡，讓人與寵物都能更從容地生活。</p><div class="note">照護從不只是餵食與陪伴，而是理解牠們的習性、需求與情緒，陪牠們一起好好生活。</div></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy hero-intro">
+      <span class="eyebrow">Maison de Paw — Pet Living &amp; Care</span>
+      <h1 class="display">Where Every Paw<br>Feels <em>at Home.</em></h1>
+      <p class="sub">讓每一個毛孩，都能找到安心的生活方式。</p>
+      <p class="motto">陪伴、照護、理解。</p>
+      <div class="hero-ctas">
+        <a href="#services" class="btn light">探索我們的服務 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor"/></svg></a>
+        <a href="#about" class="btn ghost">認識 Maison de Paw</a>
+      </div>
+    </div>
+    <figure class="hero-fg" data-speed="-0.28" style="margin:0">
+      <div class="media frame hero-intro" style="animation-delay:.25s"><img src="https://images.pexels.com/photos/30279214/pexels-photo-30279214.jpeg?auto=compress&cs=tinysrgb&w=900" alt="在陽光中靜坐的白色長毛貓" onerror="this.remove()"></div>
+      <figcaption><span>Est. Maison</span><span>Living · Care</span></figcaption>
+    </figure>
   </div>
- </div>
+  <a href="#banner" class="scroll-ind" aria-label="向下捲動"><span>Scroll</span><i></i></a>
 </section>
 
-<!-- MANIFESTO: a full-screen scroll scene -->
-<section class="manifesto" id="manifesto">
- <div class="manifesto-stage">
-  <div class="manifesto-bg" data-scene="bg"></div>
-  <div class="manifesto-grid" data-scene="grid"></div>
-  <div class="manifesto-square" data-scene="square"></div>
-  <div class="manifesto-disc" data-scene="disc"></div>
-  <div class="manifesto-content"><h2 id="manifestoTitle">A PLACE TO<br>UNDERSTAND THEM.</h2></div>
-  <div class="manifesto-caption">理解牠們，從生活開始。</div>
- </div>
-</section>
-
-<section class="section services" id="services">
- <div class="container service-intro">
-  <div class="section-title reveal"><div class="kicker">02 / Services</div><h2>Designed Around<br>Their Everyday.</h2></div>
- </div>
- <div class="service-list">
-  <article class="service">
-   <div class="service-media s1" data-parallax=".08"></div><div class="service-copy reveal"><div class="service-no">01 — PET ESSENTIALS</div><h3>Pet<br>Essentials</h3><p>從日常用品到生活所需，選擇更貼近不同寵物習性的用品，讓每一天都更舒適。</p></div>
-  </article>
-  <article class="service">
-   <div class="service-media s2" data-parallax="-.08"></div><div class="service-copy reveal"><div class="service-no">02 — GROOMING & CARE</div><h3>Grooming<br>& Care</h3><p>美容整理不只是外觀，也在過程中留意毛髮與皮膚等日常狀態。</p></div>
-  </article>
-  <article class="service">
-   <div class="service-media s3" data-parallax=".10"></div><div class="service-copy reveal"><div class="service-no">03 — BOARDING</div><h3>Boarding</h3><p>提供寄宿期間的日常生活照護與安排，讓牠們在熟悉的節奏中安心度過每一天。</p></div>
-  </article>
-  <article class="service">
-   <div class="service-media s4" data-parallax="-.10"></div><div class="service-copy reveal"><div class="service-no">04 — HUSBANDRY GUIDANCE</div><h3>Husbandry<br>Guidance</h3><p>依照不同寵物的生活習性，提供基礎飼養與照護方向，理解牠們真正需要什麼。</p></div>
-  </article>
- </div>
-</section>
-
-<section class="section companions" id="companions">
- <div class="container">
-  <div class="section-title reveal"><div class="kicker">03 / Companions</div><div><h2>Every Pet Has<br>Its Own Rhythm.</h2><p class="lead">每一種寵物，都有自己的生活節奏。</p></div></div>
-  <div class="species-stage">
-   <div class="species dog" data-speed=".30"><span>Dogs</span></div>
-   <div class="species cat" data-speed="-.22"><span>Cats</span></div>
-   <div class="species rabbit" data-speed=".18"><span>Rabbits</span></div>
-   <div class="species hamster" data-speed="-.30"><span>Hamsters</span></div>
-   <div class="species aquatic" data-speed=".24"><span>Aquatic</span></div>
-   <div class="species reptile" data-speed="-.16"><span>Reptiles</span></div>
+<!-- IMMERSIVE BANNER -->
+<section class="banner" id="banner" data-scope aria-label="A place to understand them">
+  <div class="banner-bg" data-speed="0.45" aria-hidden="true">
+    <div class="media dusk"><img src="https://images.pexels.com/photos/4725939/pexels-photo-4725939.jpeg?auto=compress&cs=tinysrgb&w=2000" alt="" onerror="this.remove()"></div>
   </div>
- </div>
-</section>
-
-<section class="care" id="care">
- <div class="care-stage">
-  <div class="care-photo" data-care-photo></div>
-  <div class="care-photo-wash" data-care-wash></div>
-  <span class="care-ring" data-speed="-.22"></span><span class="care-ring2" data-speed=".28"></span><span class="care-block" data-speed=".38"></span><span class="care-line" data-speed="-.12"></span>
-  <div class="care-content">
-   <div class="kicker reveal">04 / Care Philosophy</div>
-   <h2 class="reveal">Care Begins<br>With Understanding.</h2>
-   <div class="care-copy reveal d1">照護從不只是餵食與陪伴，而是理解牠們的習性、需求與情緒，陪牠們一起好好生活。</div>
+  <div class="wrap banner-inner" data-speed="-0.18">
+    <h2 class="display"><span>A Place To</span><span>Understand Them.</span></h2>
+    <p class="tc">理解牠們，從生活開始。</p>
   </div>
- </div>
+  <div class="banner-float media" data-speed="-0.4" aria-hidden="true"><img src="https://images.pexels.com/photos/18823073/pexels-photo-18823073.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" onerror="this.remove()"></div>
 </section>
 
-<section class="cta">
- <div class="container cta-inner">
-  <h2 class="reveal">從理解開始，<br>一起好好生活。</h2>
-  <div class="cta-actions reveal d1"><a class="btn btn-dark" href="#services">探索服務</a><a class="btn" href="#contact">聯絡 Maison de Paw</a></div>
- </div>
+<!-- ABOUT -->
+<section class="about" id="about" aria-labelledby="about-title">
+  <div class="wrap about-grid">
+    <div class="about-head">
+      <span class="eyebrow reveal">About — 01</span>
+      <h2 class="display reveal" id="about-title" style="--d:.1s">More Than<br>A <em>Pet Store.</em></h2>
+      <p class="tc reveal" style="--d:.2s">不只是寵物店。</p>
+    </div>
+    <div class="about-meta reveal" style="--d:.25s">
+      <strong>7</strong>
+      用品、照護、美容、寄宿、飼養建議、陪伴與營養方向 — 在同一個空間裡，被細心地串連起來。
+    </div>
+
+    <div class="about-img1 media reveal reveal-img" data-label="Living"><img src="https://images.pexels.com/photos/8489674/pexels-photo-8489674.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="躺在沙發上休息的白色狗狗" loading="lazy" onerror="this.remove()"></div>
+
+    <div class="about-body">
+      <p class="dropcap reveal">Maison de Paw 是一個寵物生活與照護空間。我們相信，一個好的日常，是由許多細小而一致的照顧累積而成 — 合適的用品、整潔的毛髮、安穩的寄宿、正確的飼養方向，以及有人真正在身邊陪伴。</p>
+      <p class="reveal" style="--d:.1s">因此我們不以「販售」為中心，而是以「生活」為中心：從選擇一只食碗，到理解一隻兔子為何在黃昏特別活躍，都是我們想與你一起關心的事。</p>
+      <ul class="about-list">
+        <li class="reveal" style="--d:.05s"><span>日常用品</span><span>Essentials</span></li>
+        <li class="reveal" style="--d:.1s"><span>照護與美容</span><span>Care &amp; Grooming</span></li>
+        <li class="reveal" style="--d:.15s"><span>寄宿安排</span><span>Boarding</span></li>
+        <li class="reveal" style="--d:.2s"><span>飼養建議</span><span>Guidance</span></li>
+        <li class="reveal" style="--d:.25s"><span>日常陪伴</span><span>Companionship</span></li>
+      </ul>
+    </div>
+
+    <p class="about-quote reveal">“We don't just keep them.<br>We learn how they live.”<small>Maison de Paw</small></p>
+    <div class="about-img2 media sage reveal reveal-img" style="--d:.15s" data-label="Together"><img src="https://images.pexels.com/photos/7788647/pexels-photo-7788647.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="在家中溫柔擁抱狗狗的飼主" loading="lazy" onerror="this.remove()"></div>
+  </div>
 </section>
 
-<section class="contact" id="contact">
- <div class="container contact-grid">
-  <div class="reveal"><div class="kicker">05 / Contact</div><h3>Maison de Paw</h3><p>一個為不同寵物與牠們的生活方式而存在的空間。</p></div>
-  <div class="reveal d1"><div class="kicker">Opening Hours</div><div class="hours"><strong>10:00 — 20:00</strong><p>我們採輪班方式維持長時間服務，讓不同時段都能有人員提供協助。</p><p>若寵物出現需要專業醫療判斷的健康問題，建議尋求合格獸醫師協助。</p></div></div>
- </div>
+<!-- SERVICES -->
+<section class="services" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow reveal">Services — 02</span>
+        <h2 class="display reveal" id="services-title" style="--d:.1s">Care, <em>In Detail.</em></h2>
+      </div>
+      <p class="lead reveal" style="--d:.2s">六種服務，對應生活裡的不同時刻。每一項都從觀察開始，依照寵物的習性與狀態調整。</p>
+    </div>
+
+    <article class="svc">
+      <div class="svc-media reveal reveal-img"><div class="media" data-label="Essentials"><img src="https://images.pexels.com/photos/5993634/pexels-photo-5993634.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="趴在柔軟抱枕上的白色狗狗" loading="lazy" onerror="this.remove()"></div></div>
+      <div class="svc-text">
+        <span class="svc-num reveal">01</span>
+        <h3 class="reveal" style="--d:.08s">Pet Essentials</h3>
+        <span class="tc reveal" style="--d:.12s">寵物用品</span>
+        <p class="reveal" style="--d:.16s">寵物用品與日常生活所需。我們依照不同物種、體型與生活習慣挑選用品，讓每一樣東西都真正適合牠們的日常。</p>
+        <ul class="reveal" style="--d:.22s"><li>食器與飲水</li><li>寢具與空間</li><li>清潔用品</li><li>生活耗材</li></ul>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div class="svc-media reveal reveal-img"><div class="media sage" data-label="Grooming"><img src="https://images.pexels.com/photos/19145885/pexels-photo-19145885.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="美容師正在為狗狗整理毛髮" loading="lazy" onerror="this.remove()"></div></div>
+      <div class="svc-text">
+        <span class="svc-num reveal">02</span>
+        <h3 class="reveal" style="--d:.08s">Grooming &amp; Care</h3>
+        <span class="tc reveal" style="--d:.12s">美容與照護</span>
+        <p class="reveal" style="--d:.16s">美容整理的同時，觀察毛髮與皮膚狀態。以牠們能接受的節奏進行，讓整理成為一段安穩的時光，而不是壓力。</p>
+        <ul class="reveal" style="--d:.22s"><li>洗澡整理</li><li>毛髮修剪</li><li>指甲與清潔</li><li>毛髮皮膚觀察</li></ul>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div class="svc-media reveal reveal-img"><div class="media" data-label="Boarding"><img src="https://images.pexels.com/photos/30179132/pexels-photo-30179132.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="在舒適毯子上安穩熟睡的狗" loading="lazy" onerror="this.remove()"></div></div>
+      <div class="svc-text">
+        <span class="svc-num reveal">03</span>
+        <h3 class="reveal" style="--d:.08s">Boarding</h3>
+        <span class="tc reveal" style="--d:.12s">寄宿照護</span>
+        <p class="reveal" style="--d:.16s">提供寄宿期間的日常生活照護與安排。盡量延續牠們在家的作息、飲食與習慣，讓短暫的分離也能過得安心。</p>
+        <ul class="reveal" style="--d:.22s"><li>作息延續</li><li>飲食安排</li><li>生活紀錄</li><li>輪班照看</li></ul>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div class="svc-media reveal reveal-img"><div class="media sage" data-label="Husbandry"><img src="https://images.pexels.com/photos/3586056/pexels-photo-3586056.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="一隻正在探索環境的倉鼠" loading="lazy" onerror="this.remove()"></div></div>
+      <div class="svc-text">
+        <span class="svc-num reveal">04</span>
+        <h3 class="reveal" style="--d:.08s">Husbandry Guidance</h3>
+        <span class="tc reveal" style="--d:.12s">飼養建議</span>
+        <p class="reveal" style="--d:.16s">依照不同寵物的生活習性，提供基礎飼養與照護方向。從環境溫濕度、空間配置到日常互動，協助你建立適合牠們的生活。</p>
+        <ul class="reveal" style="--d:.22s"><li>環境配置</li><li>溫濕度與光照</li><li>作息習性</li><li>特殊寵物</li></ul>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div class="svc-media reveal reveal-img"><div class="media" data-label="Companionship"><img src="https://images.pexels.com/photos/5256711/pexels-photo-5256711.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="在室內擁抱狗狗的飼主" loading="lazy" onerror="this.remove()"></div></div>
+      <div class="svc-text">
+        <span class="svc-num reveal">05</span>
+        <h3 class="reveal" style="--d:.08s">Daily Companionship</h3>
+        <span class="tc reveal" style="--d:.12s">日常陪伴</span>
+        <p class="reveal" style="--d:.16s">日常陪伴與生活觀察。留意食慾、活動量、情緒與行為的細微變化，將觀察到的狀態如實與你分享。</p>
+        <ul class="reveal" style="--d:.22s"><li>互動陪伴</li><li>行為觀察</li><li>情緒留意</li></ul>
+      </div>
+    </article>
+
+    <article class="svc">
+      <div class="svc-media reveal reveal-img"><div class="media sage" data-label="Nutrition"><img src="https://images.pexels.com/photos/8434633/pexels-photo-8434633.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="一碗為狗狗準備的乾糧" loading="lazy" onerror="this.remove()"></div></div>
+      <div class="svc-text">
+        <span class="svc-num reveal">06</span>
+        <h3 class="reveal" style="--d:.08s">Nutrition Guidance</h3>
+        <span class="tc reveal" style="--d:.12s">營養方向建議</span>
+        <p class="reveal" style="--d:.16s">依照物種、年齡與生活型態，提供基礎的營養方向建議，協助你挑選合適的日常飲食。</p>
+        <p class="svc-note reveal" style="--d:.22s">若寵物出現需要專業醫療判斷的健康問題，建議尋求合格獸醫師協助。</p>
+      </div>
+    </article>
+  </div>
 </section>
+
+<!-- COMPANIONS -->
+<section class="companions" id="companions" aria-labelledby="comp-title">
+  <div class="wrap">
+    <header class="comp-head">
+      <span class="eyebrow reveal">Companions — 03</span>
+      <h2 class="display reveal" id="comp-title" style="--d:.1s">Every Pet Has<br>Its Own <em>Rhythm.</em></h2>
+      <p class="tc reveal" style="--d:.2s">每一種寵物，都有自己的生活節奏。</p>
+    </header>
+
+    <div class="comp-grid">
+      <article class="comp c1 reveal"><div class="media" data-label="Dogs"><img src="https://images.pexels.com/photos/2797717/pexels-photo-2797717.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="趴在沙發上的狗" loading="lazy" onerror="this.remove()"></div><div class="comp-cap"><h3>Dogs</h3><span>犬</span></div><p>需要規律的散步、互動與明確的生活節奏。</p></article>
+      <article class="comp c2 reveal" style="--d:.1s"><div class="media sage" data-label="Cats"><img src="https://images.pexels.com/photos/19176825/pexels-photo-19176825.jpeg?auto=compress&cs=tinysrgb&w=900" alt="坐在窗邊的虎斑貓" loading="lazy" onerror="this.remove()"></div><div class="comp-cap"><h3>Cats</h3><span>貓</span></div><p>重視領域與安全感，喜歡可預期的日常。</p></article>
+      <article class="comp c3 reveal"><div class="media" data-label="Rabbits"><img src="https://images.pexels.com/photos/4588071/pexels-photo-4588071.jpeg?auto=compress&cs=tinysrgb&w=800" alt="寵物兔的肖像" loading="lazy" onerror="this.remove()"></div><div class="comp-cap"><h3>Rabbits</h3><span>兔</span></div><p>晨昏活躍，對環境變化與聲音十分敏感。</p></article>
+      <article class="comp c4 reveal" style="--d:.1s"><div class="media sage" data-label="Hamsters"><img src="https://images.pexels.com/photos/4520482/pexels-photo-4520482.jpeg?auto=compress&cs=tinysrgb&w=800" alt="倉鼠的近距離照片" loading="lazy" onerror="this.remove()"></div><div class="comp-cap"><h3>Hamsters</h3><span>倉鼠</span></div><p>夜行性，需要足夠的墊材與安靜的休息空間。</p></article>
+      <article class="comp c5 reveal" style="--d:.2s"><div class="media dusk" data-label="Aquatic"><img src="https://images.pexels.com/photos/3513236/pexels-photo-3513236.jpeg?auto=compress&cs=tinysrgb&w=800" alt="水族缸中的金魚" loading="lazy" onerror="this.remove()"></div><div class="comp-cap"><h3>Aquatic</h3><span>水族</span></div><p>水質、溫度與光照，構成牠們的整個世界。</p></article>
+      <article class="comp c6 reveal"><div class="media sage" data-label="Reptiles"><img src="https://images.pexels.com/photos/8162439/pexels-photo-8162439.jpeg?auto=compress&cs=tinysrgb&w=800" alt="飼主手上托著一隻豹紋守宮" loading="lazy" onerror="this.remove()"></div><div class="comp-cap"><h3>Reptiles</h3><span>爬蟲</span></div><p>仰賴溫度梯度與光照週期維持生理節律。</p></article>
+      <article class="comp c7 reveal" style="--d:.1s"><div class="media" data-label="Arthropods"><img src="https://images.pexels.com/photos/19679351/pexels-photo-19679351.jpeg?auto=compress&cs=tinysrgb&w=800" alt="智利紅玫瑰捕鳥蛛的近照" loading="lazy" onerror="this.remove()"></div><div class="comp-cap"><h3>Arthropods</h3><span>節肢動物</span></div><p>濕度、底材與蛻皮期，都需要細心安排。</p></article>
+      <article class="comp c8 reveal" style="--d:.2s"><div class="media" data-label="Special Pets"><img src="https://images.pexels.com/photos/7154566/pexels-photo-7154566.jpeg?auto=compress&cs=tinysrgb&w=900" alt="黃色玄鳳鸚鵡的近照" loading="lazy" onerror="this.remove()"></div><div class="comp-cap"><h3>Special Pets</h3><span>特殊寵物</span></div><p>每一種少見的夥伴，都值得被認真理解。</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- CARE PHILOSOPHY -->
+<section class="care" id="care" aria-labelledby="care-title">
+  <div class="wrap care-grid">
+    <div class="care-title">
+      <span class="eyebrow reveal">Care Philosophy — 04</span>
+      <h2 class="display reveal" id="care-title" style="--d:.1s"><span>Care Begins</span><span>With <em>Understanding.</em></span></h2>
+      <span class="tc reveal" style="--d:.2s">照護，從理解開始。</span>
+    </div>
+    <div class="care-img media dusk reveal reveal-img" data-label="Understanding"><img src="https://images.pexels.com/photos/16622787/pexels-photo-16622787.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="一隻狗安靜望向前方的肖像" loading="lazy" onerror="this.remove()"></div>
+    <div class="care-body">
+      <blockquote class="reveal">照護從不只是餵食與陪伴，而是理解牠們的習性、需求與情緒，陪牠們一起好好生活。</blockquote>
+      <div class="pillars">
+        <div class="reveal" style="--d:.05s"><b>Companion</b><span>陪伴</span></div>
+        <div class="reveal" style="--d:.15s"><b>Care</b><span>照護</span></div>
+        <div class="reveal" style="--d:.25s"><b>Understand</b><span>理解</span></div>
+      </div>
+      <p class="care-note reveal" style="--d:.3s">Maison de Paw 為寵物生活與照護空間，並非動物醫院，不提供疾病診斷、醫療判斷、治療或處方。若寵物出現需要專業醫療判斷的健康問題，建議尋求合格獸醫師協助。</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" data-scope aria-labelledby="cta-title">
+  <div class="cta-bg" data-speed="0.25" aria-hidden="true"><img src="https://images.pexels.com/photos/19787810/pexels-photo-19787810.jpeg?auto=compress&cs=tinysrgb&w=2000" alt="" loading="lazy" onerror="this.remove()"></div>
+  <div class="wrap">
+    <span class="eyebrow reveal">Begin Together</span>
+    <h2 class="reveal" id="cta-title" style="--d:.1s">從理解開始，<br>一起好好生活。</h2>
+    <p class="reveal" style="--d:.2s">無論是日常用品、美容整理、寄宿安排，或只是想更了解你的夥伴，我們都在這裡。</p>
+    <div class="cta-btns reveal" style="--d:.3s">
+      <a href="#services" class="btn">探索服務 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor"/></svg></a>
+      <a href="#contact" class="btn line">聯絡 Maison de Paw</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap contact-grid">
+    <div class="contact-left">
+      <span class="eyebrow reveal">Contact — 05</span>
+      <h2 class="display reveal" id="contact-title" style="--d:.1s">Visit <em>the Maison.</em></h2>
+    </div>
+    <dl class="contact-right">
+      <div class="info-row reveal"><dt>Maison</dt><dd><p class="brand-name">Maison de Paw<small>寵物生活與照護空間</small></p></dd></div>
+      <div class="info-row reveal" style="--d:.1s"><dt>Opening Hours</dt><dd><span class="hours">10:00 — 20:00</span><p>我們採輪班方式維持長時間服務，讓不同時段都能有人員提供協助。</p></dd></div>
+      <div class="info-row reveal" style="--d:.2s"><dt>Note</dt><dd><p style="margin-top:0">若寵物出現需要專業醫療判斷的健康問題，建議尋求合格獸醫師協助。</p></dd></div>
+    </dl>
+  </div>
+</section>
+
 </main>
 
-<footer><span>Maison de Paw</span><span>Companionship · Care · Understanding</span></footer>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-logo">Maison <em>de</em> Paw</p>
+      <nav aria-label="頁尾導覽"><ul>
+        <li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#companions">Companions</a></li><li><a href="#care">Care</a></li><li><a href="#contact">Contact</a></li>
+      </ul></nav>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="year">2026</span> Maison de Paw　陪伴、照護、理解。</span>
+      <span>Photography via <a href="https://www.pexels.com" target="_blank" rel="noopener" style="text-decoration:underline">Pexels</a></span>
+      <a href="#top" class="to-top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
 
 <script>
-(() => {
- const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
- const nav=document.getElementById('nav'),progress=document.getElementById('progress');
- const menu=document.getElementById('menu');
- const hero=document.getElementById('hero'),heroTitle=document.getElementById('heroTitle'),heroCopy=document.getElementById('heroCopy');
- const manifesto=document.getElementById('manifesto'),manifestoTitle=document.getElementById('manifestoTitle');
- const ticking={v:false};
+(function(){
+  "use strict";
+  var doc=document.documentElement;
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)");
+  var nav=document.getElementById("nav");
+  var bar=document.getElementById("progress");
+  var burger=document.getElementById("burger");
+  var menu=document.getElementById("mobileMenu");
+  var menuLinks=menu.querySelectorAll("a");
+  var navLinks=document.querySelectorAll(".nav-link");
+  document.getElementById("year").textContent=new Date().getFullYear();
 
- const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
- const map=(v,a,b,c,d)=>c+(v-a)/(b-a)*(d-c);
+  /* ---- Parallax + progress + nav state (rAF) ---- */
+  var layers=[].slice.call(document.querySelectorAll("[data-speed]"));
+  var ticking=false;
+  function factor(){var w=window.innerWidth;return w<768?0.5:(w<1200?0.75:1)}
+  function update(){
+    ticking=false;
+    var y=window.scrollY||window.pageYOffset;
+    var max=doc.scrollHeight-window.innerHeight;
+    var p=max>0?Math.min(y/max,1):0;
+    bar.style.transform="scaleX("+p+")";
+    bar.setAttribute("aria-valuenow",Math.round(p*100));
+    nav.classList.toggle("scrolled",y>40);
+    if(reduce.matches) return;
+    var vh=window.innerHeight,f=factor();
+    for(var i=0;i<layers.length;i++){
+      var el=layers[i],scope=el.closest("[data-scope]")||el;
+      var r=scope.getBoundingClientRect();
+      if(r.bottom<-300||r.top>vh+300) continue;
+      var offset=(r.top+r.height/2)-vh/2;
+      if(scope.id==="top") offset=r.top; /* hero starts centered at 0 */
+      var t=-offset*parseFloat(el.getAttribute("data-speed"))*f;
+      el.style.transform="translate3d(0,"+t.toFixed(1)+"px,0)";
+    }
+  }
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
+  window.addEventListener("scroll",onScroll,{passive:true});
+  window.addEventListener("resize",onScroll);
+  function resetParallax(){if(reduce.matches){layers.forEach(function(l){l.style.transform=""})}onScroll()}
+  if(reduce.addEventListener) reduce.addEventListener("change",resetParallax);
+  update();
 
- function sceneProgress(el){
-   const r=el.getBoundingClientRect(), h=window.innerHeight;
-   return clamp((h-r.top)/(h+r.height),0,1);
- }
+  /* ---- Scroll reveal ---- */
+  var revealEls=document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window && !reduce.matches){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}});
+    },{threshold:.15,rootMargin:"0px 0px -8% 0px"});
+    revealEls.forEach(function(el){io.observe(el)});
+  }else{
+    revealEls.forEach(function(el){el.classList.add("in")});
+  }
 
- function update(){
-   const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;
-   progress.style.width=(max?y/max*100:0)+'%';
-   nav.classList.toggle('scrolled',y>45);
+  /* ---- Active nav link ---- */
+  if("IntersectionObserver" in window){
+    var map={};navLinks.forEach(function(a){map[a.getAttribute("href").slice(1)]=a});
+    var so=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){navLinks.forEach(function(a){a.classList.remove("active");a.removeAttribute("aria-current")});
+          var a=map[e.target.id];if(a){a.classList.add("active");a.setAttribute("aria-current","true")}}
+      });
+    },{rootMargin:"-45% 0px -50% 0px"});
+    Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s) so.observe(s)});
+  }
 
-   if(!reduced){
-     /* HERO: 6 independent layers */
-     const hr=hero.getBoundingClientRect();
-     const hp=clamp(-hr.top/(hero.offsetHeight-innerHeight),0,1);
-     const heroBase=document.querySelector('.hero-base');
-     heroBase.style.transform=`translate3d(0,${hp*120}px,0) scale(${1.12-hp*.08})`;
-     document.querySelectorAll('.hero-stage .geo,.hero-stage .hero-photo-glow').forEach(el=>{
-       const speed=parseFloat(el.dataset.speed||0);
-       const ty=hp*speed*520;
-       const rot=(el.classList.contains('hero-ring')?hp*28:hp*10);
-       const sc=1+hp*(el.classList.contains('hero-circle')?.12:.04);
-       el.style.transform=`translate3d(0,${ty}px,0) rotate(${rot}deg) scale(${sc})`;
-     });
-     heroTitle.style.transform=`translate3d(0,${-hp*180}px,0) scale(${1-hp*.12})`;
-     heroTitle.style.opacity=String(1-hp*1.15);
-     heroCopy.style.transform=`translate3d(0,${-hp*110}px,0)`;
-     heroCopy.style.opacity=String(1-hp*.95);
+  /* ---- Mobile menu ---- */
+  function setMenu(open){
+    burger.setAttribute("aria-expanded",String(open));
+    burger.setAttribute("aria-label",open?"關閉選單":"開啟選單");
+    menu.classList.toggle("open",open);
+    menu.setAttribute("aria-hidden",String(!open));
+    document.body.classList.toggle("menu-open",open);
+    menuLinks.forEach(function(a){a.tabIndex=open?0:-1});
+    if(open) setTimeout(function(){menuLinks[0].focus()},50);
+  }
+  burger.addEventListener("click",function(){setMenu(burger.getAttribute("aria-expanded")!=="true")});
+  menuLinks.forEach(function(a){a.addEventListener("click",function(){setMenu(false)})});
+  document.addEventListener("keydown",function(e){
+    if(!menu.classList.contains("open")) return;
+    if(e.key==="Escape"){setMenu(false);burger.focus()}
+    if(e.key==="Tab"){ /* focus trap */
+      var items=[burger].concat([].slice.call(menuLinks));
+      var first=items[0],last=items[items.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+    }
+  });
+  window.addEventListener("resize",function(){if(window.innerWidth>767&&menu.classList.contains("open")) setMenu(false)});
 
-     /* ABOUT: objects travel independently */
-     document.querySelectorAll('[data-parallax]').forEach(el=>{
-       const r=el.getBoundingClientRect();
-       if(r.bottom>0 && r.top<innerHeight){
-         const center=(r.top+r.height/2-innerHeight/2)/innerHeight;
-         const speed=parseFloat(el.dataset.parallax);
-         const x=el.classList.contains('about-bg-circle')?center*80:0;
-         el.style.transform=`translate3d(${x}px,${center*speed*-180}px,0)`;
-       }
-     });
-
-     /* MANIFESTO: continuous scroll choreography */
-     const mp=sceneProgress(manifesto);
-     const bg=document.querySelector('.manifesto-bg');
-     const grid=document.querySelector('.manifesto-grid');
-     const square=document.querySelector('.manifesto-square');
-     const disc=document.querySelector('.manifesto-disc');
-     bg.style.transform=`translate3d(0,${map(mp,0,1,-120,120)}px,0) scale(${map(mp,0,1,1.18,1.02)})`;
-     grid.style.transform=`translate3d(${map(mp,0,1,-100,100)}px,${map(mp,0,1,100,-100)}px,0) rotate(${map(mp,0,1,18,38)}deg)`;
-     square.style.transform=`translate3d(${map(mp,0,1,160,-120)}px,${map(mp,0,1,-100,140)}px,0) rotate(${map(mp,0,1,30,95)}deg) scale(${map(mp,0,1,.8,1.25)})`;
-     disc.style.transform=`translate3d(${map(mp,0,1,-100,180)}px,${map(mp,0,1,100,-120)}px,0) scale(${map(mp,0,1,.7,1.4)})`;
-     manifestoTitle.style.transform=`translate3d(0,${map(mp,0,1,160,-160)}px,0) scale(${map(mp,0,1,.78,1.08)})`;
-     manifestoTitle.style.opacity=String(Math.sin(mp*Math.PI));
-
-     /* SERVICE IMAGE PARALLAX */
-     document.querySelectorAll('.service-media').forEach(el=>{
-       const r=el.getBoundingClientRect();
-       const p=clamp((innerHeight-r.top)/(innerHeight+r.height),0,1);
-       const speed=parseFloat(el.dataset.parallax||0);
-       const image=el.querySelector(':before');
-       const y=(p-.5)*speed*-700;
-       el.style.setProperty('--py',y+'px');
-       el.style.setProperty('--rot',((p-.5)*speed*14)+'deg');
-     });
-     document.documentElement.style.setProperty('--service-p','1');
-
-     /* COMPANION FLOATING COLLAGE */
-     document.querySelectorAll('.species').forEach(el=>{
-       const r=el.getBoundingClientRect();
-       const p=clamp((innerHeight-r.top)/(innerHeight+r.height),0,1);
-       const speed=parseFloat(el.dataset.speed||0);
-       const y=(p-.5)*speed*-500;
-       const rot=(p-.5)*speed*16;
-       const scale=1+Math.abs(p-.5)*.08;
-       el.style.transform=`translate3d(0,${y}px,0) rotate(${rot}deg) scale(${scale})`;
-       el.style.setProperty('--imgY',(-y*.45)+'px');
-     });
-
-     /* CARE: photo + geometric choreography */
-     const care=document.querySelector('.care'), cp=sceneProgress(care);
-     document.querySelector('[data-care-photo]').style.transform=`translate3d(0,${map(cp,0,1,100,-130)}px,0) scale(${map(cp,0,1,1.12,1.02)})`;
-     document.querySelector('[data-care-wash]').style.transform=`translate3d(${map(cp,0,1,-120,180)}px,${map(cp,0,1,100,-140)}px,0) rotate(${map(cp,0,1,20,75)}deg) scale(${map(cp,0,1,.8,1.2)})`;
-     document.querySelector('.care-ring').style.transform=`translate3d(${map(cp,0,1,-100,260)}px,${map(cp,0,1,120,-160)}px,0) rotate(${map(cp,0,1,-20,45)}deg) scale(${map(cp,0,1,.75,1.18)})`;
-     document.querySelector('.care-ring2').style.transform=`translate3d(${map(cp,0,1,100,-180)}px,${map(cp,0,1,-80,130)}px,0) rotate(${map(cp,0,1,15,-35)}deg) scale(${map(cp,0,1,.7,1.3)})`;
-     document.querySelector('.care-block').style.transform=`translate3d(${map(cp,0,1,180,-100)}px,${map(cp,0,1,-100,150)}px,0) rotate(${map(cp,0,1,15,80)}deg) scale(${map(cp,0,1,.7,1.2)})`;
-     document.querySelector('.care-line').style.transform=`translate3d(${map(cp,0,1,-180,180)}px,${map(cp,0,1,100,-100)}px,0) rotate(${map(cp,0,1,-18,18)}deg)`;
-   }
-   ticking.v=false;
- }
- window.addEventListener('scroll',()=>{if(!ticking.v){ticking.v=true;requestAnimationFrame(update)}},{passive:true});
- window.addEventListener('resize',update);
- update();
-
- /* Intersection reveal for normal sections */
- const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
- document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
- menu.addEventListener('click',()=>{
-   const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);
- });
- document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
-
- /* CSS custom property for image pseudo-elements */
- const style=document.createElement('style');
- style.textContent='.service-media:before{transform:translate3d(0,var(--py,0),0) scale(1.12)}.service-media:after{transform:translate3d(0,var(--py,0),0) rotate(calc(-8deg + var(--rot,0deg)))}.species:before{transform:translate3d(0,var(--imgY,0),0) scale(1.1)}';
- document.head.appendChild(style);
+  /* ---- Smooth anchor scroll ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener("click",function(e){
+      var id=a.getAttribute("href");
+      if(id.length<2) return;
+      var t=document.querySelector(id);if(!t) return;
+      e.preventDefault();
+      var top=id==="#top"?0:t.getBoundingClientRect().top+window.pageYOffset-(window.innerWidth<768?56:64);
+      window.scrollTo({top:top,behavior:reduce.matches?"auto":"smooth"});
+      if(history.replaceState) history.replaceState(null,"",id);
+      var focusTarget=id==="#top"?document.getElementById("main"):t;
+      focusTarget.setAttribute("tabindex","-1");
+      focusTarget.focus({preventScroll:true});
+    });
+  });
 })();
 </script>
 </body>
